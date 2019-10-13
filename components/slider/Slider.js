@@ -94,7 +94,7 @@ class MySlider extends React.Component {
                             activeIndex={activeIndex}
                             next={this.next}
                             previous={this.previous}
-                            interval={200000}
+                            interval={2000}
                         >
 
                             {slides}

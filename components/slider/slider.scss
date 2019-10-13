@@ -41,9 +41,16 @@
 }
 
 .image-container{
-
+  width: inherit;
+  height: inherit;
   .image{
-    max-width: 100%;
+    width: inherit;
     height: auto;
+  }
+}
+@media (min-width: 1920px) {
+  .phone{
+    height: 465px;
+    width: 320px;
   }
 }
