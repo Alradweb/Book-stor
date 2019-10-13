@@ -129,9 +129,9 @@ class Index extends React.Component {
             <Layout title='Main page'>
                 <div className='product-description'>
                     <Row className='product-row'>
-                        <Col xs='4'>
+                        <Col xs='4' className='flex-column'>
                             <Logo height={32} width={43}/>
-                            <button className='btn btn-danger product-btn'>ПОДРОБНЕЕУУУ</button>
+                            <button className='btn btn-danger product-btn'>ПОДРОБНЕЕ</button>
                         </Col>
                         <Col xs='8' className='description'>
                             <div className='description-container'>
