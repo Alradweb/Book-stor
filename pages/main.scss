@@ -17,7 +17,7 @@
   &::before {
     position: absolute;
     content: '';
-    border: 5px solid #011120cc;
+    border: 5px solid rgba(1, 17, 32, 0.8);
     border-radius: 50%;
     height: 6px;
     width: 6px;
@@ -28,7 +28,7 @@
   &::after {
     position: absolute;
     content: '';
-    border: 3px solid #011120cc;
+    border: 3px solid rgba(1, 17, 32, 0.8);
     border-radius: 7px;
     height: 6px;
     width: 50px;

@@ -131,7 +131,7 @@ class Index extends React.Component {
                     <Row className='product-row'>
                         <Col xs='4'>
                             <Logo height={32} width={43}/>
-                            <button className='btn btn-danger product-btn'>ПОДРОБНЕЕ</button>
+                            <button className='btn btn-danger product-btn'>ПОДРОБНЕЕУУУ</button>
                         </Col>
                         <Col xs='8' className='description'>
                             <div className='description-container'>
