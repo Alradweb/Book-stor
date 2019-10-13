@@ -1,0 +1,27 @@
+
+@import "../../styles/theme/theme";
+
+.header{
+  position: absolute;
+  z-index: 100;
+  //display: flex;
+  //justify-content: flex-start;
+  //align-items: center;
+  left: 0;
+  right: 0;
+  height: 64px;
+  width: 100%;
+
+  padding: 0 20px;
+
+  //font-family: $logo-font;
+  font-family: $lobster-font;
+  font-size: 24px;
+  font-weight: bold;
+  color: $on-secondary;
+  text-transform: uppercase;
+ //border-bottom: 1px solid darkred;
+  //background: $secondary-dark;
+  //background: linear-gradient(150deg, $secondary-dark 15%, #0D141A 70%, #14191D 94%);
+
+}

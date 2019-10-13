@@ -1,0 +1,92 @@
+@import "../styles/theme/theme";
+
+.product-description {
+  position: absolute;
+  background-color: rgba(7, 8, 11, 0.17);
+  background-image: linear-gradient(#fcfcfc 11%, transparent 11%);
+  height: 322px;
+  width: 40%;
+  left: auto;
+  padding: 45px 15px 15px;
+  color: #f7fffc;
+  right: 0;
+  border: 4px solid silver;
+  border-radius: 10px;
+  top: 10%;
+
+  &::before {
+    position: absolute;
+    content: '';
+    border: 5px solid #011120cc;
+    border-radius: 50%;
+    height: 6px;
+    width: 6px;
+    top: 12px;
+    left: calc(50% + 43px);
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    border: 3px solid #011120cc;
+    border-radius: 7px;
+    height: 6px;
+    width: 50px;
+    top: 14px;
+    left: calc(50% - 25px);
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 1.3;
+  }
+
+  .product-row {
+    height: 100%;
+
+    .product-btn{
+      margin-top: 35px;
+    }
+  }
+
+  .description {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      .description-date {
+        margin-top: auto;
+        align-self: center;
+        margin-bottom: 15px;
+
+        .description-genre{
+          color: $accent-color;
+        }
+      }
+    }
+  }
+}
+
+.content-container {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  text-align: center;
+  color: $mainFontColor;
+
+  .get-now {
+    top: -100px;
+
+  }
+
+  p {
+    font-size: $mainFontSize;
+  }
+}

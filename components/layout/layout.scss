@@ -1,0 +1,99 @@
+@import "../../styles/theme/theme";
+
+.layout {
+  flex: 1;
+  //flex-grow: 1;
+
+  //flex: 1;
+  //display: flex;
+  //flex-direction: column;
+
+  //height: 100%;
+  //width: 100%;
+
+  main {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    //flex: 1;
+    //display: flex;
+    //flex-direction: column;
+    //width: 100%;
+    //height: 100%;
+
+  }
+  .decoration-container{
+    position: relative;
+    min-height: 100vh;
+    background: $secondary-dark;
+    overflow: hidden;
+  }
+  .decoration {
+    position: absolute;
+    //flex: 1;
+    //display: flex;
+    //justify-content: center;
+    //align-items: center;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    transform-origin: top;
+    transform: skewY(-6deg);
+
+    //background: $secondary;
+    //background: linear-gradient(150deg,#53f 15%,#05d5ff 70%,#a6ffcb 94%);
+    background: linear-gradient(150deg, $secondary-dark 15%, #0D141A 70%, #14191D 94%);
+     span{
+       position: absolute;
+       height: 100px;
+     }
+     span:first-child {
+       width: 33.33333%;
+       left: -16.66666%;
+       top: 0;
+       //background: #14191D;
+       background: linear-gradient(150deg, $secondary-dark 15%, #0D141A 70%, #14191D 94%);
+     }
+    span:nth-child(2) {
+      width: 33.33333%;
+      height: 210px;
+      top: 0;
+      left: 16.66666%;
+      right: auto;
+      //background: $secondary-dark;
+      background: linear-gradient(150deg, $secondary-dark 15%, #0D141A 70%, #14191D 94%);
+    }
+    span:nth-child(3) {
+      width: 33.33333%;
+      height: 170px;
+      left: 49.99999%;
+      top: 0;
+      bottom: auto;
+      //background: #0D141A;
+      background: linear-gradient(150deg, $secondary-dark 15%, #0D141A 70%, #14191D 94%);
+    }
+    span:nth-child(4) {
+      width: 33.33333%;
+      left: 82.99999%;
+      top: 0;
+      bottom: auto;
+      background: #696563;
+      background: linear-gradient(150deg, $secondary-dark 15%, #0D141A 70%, #14191D 94%);
+    }
+    span:nth-child(5){
+      width: calc(100% / 3);
+      left: 0;
+      bottom: 0;
+      height: 300px;
+      background: linear-gradient(330deg, #011120 15%, #0D141A 70%, #14191D 94%);
+    }
+    span:last-child{
+      width: calc(100% / 3);
+      right: 0;
+      bottom: 0;
+      height: 400px;
+      background: linear-gradient(330deg, #011120, #14191D);
+    }
+  }
+}
+

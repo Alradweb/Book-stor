@@ -1,0 +1,30 @@
+.conveyor {
+  display: flex;
+  width: 100%;
+  margin-top: auto;
+  margin-left: 15px;
+  margin-bottom: 30px;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    //transition: all 500ms;
+
+    li {
+      max-width: 20.3333%;
+
+      //display: inline-block;
+    }
+  }
+
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+
