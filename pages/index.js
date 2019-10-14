@@ -7,8 +7,8 @@ import MainSlider from "../components/main-slider/MainSlider"
 import GetNow from "../components/get-now/GetNow"
 import Logo from "../components/logo/Logo"
 import CheckMark from "../components/icons/CheckMark"
-
-
+import fetch from 'isomorphic-unfetch'; //test
+import {UserAgentProvider} from '@quentin-sommer/react-useragent'
 const items = [
     {
         id: 1,
@@ -87,7 +87,17 @@ class Index extends React.Component {
             pause: 'mouseout'
         }
     }
+    static async getInitialProps({req}) {
+        //const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
+        //const data = await res.json();
+        const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
+       // console.log(`Show data fetched. Count: ${data.length}`);
 
+        return {
+            //shows: data.map(entry => entry.show),
+            userAgent
+        }
+    }
     setIndex = (index) => {
         this.setState({
             index
@@ -100,6 +110,7 @@ class Index extends React.Component {
     }
     getCurrentProduct = () => items[this.state.index]
     getPortion = () => {
+        console.log(this.props)
         const quantity = 4
         const {length} = items
         const boundary = length - quantity
@@ -127,6 +138,7 @@ class Index extends React.Component {
         //console.log(description.length)
         return (
             <Layout title='Main page'>
+
                 <div className='product-description'>
                     <Row className='product-row'>
                         <Col xs='4' className='flex-column'>
@@ -155,18 +167,21 @@ class Index extends React.Component {
                                 <GetNow price={price} toggleHover={toggleHover} animStatus={animStatus}/>
                             </Col>
                             <Col xs='6'>
-                                <MainSlider
-                                    items={items}
-                                    setIndex={setIndex}
-                                    portion={getPortion()}
-                                    changeAnimStatus={changeAnimStatus}
-                                    pause={pause}
-                                    toggleHover={toggleHover}
-                                />
+                                <UserAgentProvider ua={this.props.userAgent}>
+                                    <MainSlider
+                                        items={items}
+                                        setIndex={setIndex}
+                                        portion={getPortion()}
+                                        changeAnimStatus={changeAnimStatus}
+                                        pause={pause}
+                                        toggleHover={toggleHover}
+                                    />
+                                </UserAgentProvider>
                             </Col>
                         </Row>
                     </Container>
                 </section>
+
             </Layout>
         )
 

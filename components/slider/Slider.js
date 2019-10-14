@@ -4,6 +4,7 @@ import {
     CarouselCaption
 } from 'reactstrap'
 import Fade from 'react-reveal/Fade'
+import {UserAgent} from '@quentin-sommer/react-useragent'
 import './slider.scss'
 
 
@@ -86,7 +87,7 @@ class MySlider extends React.Component {
         })
 
         return (
-            <>
+            <UserAgent tablet computer>
                 <div className='hren'>
                     <div className='phone' >
                         <Carousel
@@ -105,7 +106,7 @@ class MySlider extends React.Component {
                 </div>
                 {/*<button onClick={() =>this.triggerHover('mouseover')} ref={this.mouseOverBtn}>TRIGGER</button>*/}
                 {/*<button onClick={() =>this.triggerHover('mouseout')}>END</button>*/}
-            </>
+            </UserAgent>
         )
     }
 }

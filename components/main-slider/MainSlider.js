@@ -1,4 +1,4 @@
-
+import {UserAgent} from '@quentin-sommer/react-useragent'
 import MySlider from "../slider/Slider"
 import Conveyor from "../conveyor/Сonveyor"
 import './main-slider.scss'
@@ -13,7 +13,9 @@ const MainSlider = ({items, portion, setIndex, changeAnimStatus, pause, toggleHo
                       changeAnimStatus={changeAnimStatus}
                       pause={pause}
             />
-            <Conveyor portion={portion} toggleHover={toggleHover}/>
+            <UserAgent tablet computer>
+                <Conveyor portion={portion} toggleHover={toggleHover}/>
+            </UserAgent>
         </div>
     )
 }
