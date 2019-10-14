@@ -136,11 +136,11 @@ class Index extends React.Component {
                         <Col xs='8' className='description'>
                             <div className='description-container'>
                                 <div className='description-main'>
-                                    <h5>{title}</h5>
+                                    <h5 className='description-title'>{title}</h5>
                                     <p>{description.substring(0, 300)
                                     .concat('...')}</p>
                                 </div>
-                                <div className='description-date'>
+                                <div className='description-sub'>
                                     <time>{publicationDate} |</time>
                                     <span className='description-genre'> Фантастика</span>
                                 </div>

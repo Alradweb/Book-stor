@@ -5,6 +5,7 @@ import config from 'react-reveal/globals'
 import './index.scss'
 import './layout.scss'
 import Header from "../header/Header"
+import {Container} from "reactstrap"
 config({ ssrFadeout: true })
 
 const Layout = props => {
@@ -27,7 +28,9 @@ const Layout = props => {
                         <span/>
                     </div>
                 </div>
+
                     {props.children}
+
             </main>
         </div>
     )

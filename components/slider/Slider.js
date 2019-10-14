@@ -52,6 +52,7 @@ class MySlider extends React.Component {
     }
 
     triggerHover =(ev) =>{
+
         const event = new MouseEvent(ev, {
             view: window,
             bubbles: true

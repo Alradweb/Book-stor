@@ -3,9 +3,9 @@
 .product-description {
   position: absolute;
   background-color: rgba(7, 8, 11, 0.17);
-  //background-image: linear-gradient(#fcfcfc 11%, transparent 11%);
   background-image: linear-gradient(#fcfcfc 60px, transparent 60px);
-  height: 322px;
+ // height: 322px;
+  height: 50%;
   width: 40%;
   left: auto;
   padding: 60px 15px 15px;  //45px
@@ -53,31 +53,29 @@
       margin-top: calc(10% + 38px);
     }
   }
-
-  .description {
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-
-    .description-container {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-
-      .description-date {
-        margin-top: auto;
-        align-self: center;
-        margin-bottom: 15px;
-
-        .description-genre {
-          color: $accent-color;
-        }
-      }
-    }
-  }
 }
-
+.description {
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+.description-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.description-sub {
+  margin-top: auto;
+  align-self: center;
+  margin-bottom: 15px;
+}
+.description-genre {
+  color: $accent-color;
+}
+.description-title{
+  padding-top: 15px;
+}
 .content-container {
   position: absolute;
   width: 100%;
@@ -85,22 +83,19 @@
   bottom: 0;
   text-align: center;
   color: $mainFontColor;
-
-  .get-now {
-    top: -100px;
-
-  }
-
   p {
     font-size: $mainFontSize;
   }
 }
+.get-now {
+  top: -100px;
+}
 
 @media (min-width: 1920px) {
   .product-description {
-    height: 560px;
+    height: 55%;
     width: 44%;
-    h5{
+    .description-title{
       font-size: 36px;
       padding-top: 40px;
       margin-bottom: 20px;
