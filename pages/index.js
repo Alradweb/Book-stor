@@ -6,9 +6,14 @@ import Zoom from 'react-reveal/Zoom'
 import MainSlider from "../components/main-slider/MainSlider"
 import GetNow from "../components/get-now/GetNow"
 import Logo from "../components/logo/Logo"
+import {MediaProvider} from '../context/context'
+const parser = require('ua-parser-js');
+
 import CheckMark from "../components/icons/CheckMark"
 import fetch from 'isomorphic-unfetch'; //test
-import {UserAgentProvider} from '@quentin-sommer/react-useragent'
+//import {UserAgentProvider} from '@quentin-sommer/react-useragent'
+
+console.log(parser)
 const items = [
     {
         id: 1,
@@ -92,10 +97,9 @@ class Index extends React.Component {
         //const data = await res.json();
         const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
        // console.log(`Show data fetched. Count: ${data.length}`);
-
         return {
             //shows: data.map(entry => entry.show),
-            userAgent
+            device : parser(userAgent).device.type
         }
     }
     setIndex = (index) => {
@@ -143,7 +147,7 @@ class Index extends React.Component {
                     <Row className='product-row'>
                         <Col xs='4' className='flex-column'>
                             <Logo height={32} width={43}/>
-                            <button className='btn btn-danger product-btn'>ПОДРОБНЕЕ</button>
+                            <button className='btn btn-danger product-btn'>Подробнее</button>
                         </Col>
                         <Col xs='8' className='description'>
                             <div className='description-container'>
@@ -164,10 +168,10 @@ class Index extends React.Component {
                     <Container fluid>
                         <Row>
                             <Col xs='6' className='get-now'>
-                                <GetNow price={price} toggleHover={toggleHover} animStatus={animStatus}/>
+                                <GetNow dev={this.props.device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
                             </Col>
                             <Col xs='6'>
-                                <UserAgentProvider ua={this.props.userAgent}>
+                                <MediaProvider device={this.props.device}>
                                     <MainSlider
                                         items={items}
                                         setIndex={setIndex}
@@ -176,7 +180,7 @@ class Index extends React.Component {
                                         pause={pause}
                                         toggleHover={toggleHover}
                                     />
-                                </UserAgentProvider>
+                                </MediaProvider>
                             </Col>
                         </Row>
                     </Container>

@@ -3,7 +3,7 @@ import './get-now.scss'
 import CheckMark from "../icons/CheckMark"
 import Zoom from "react-reveal/Zoom"
 
-const GetNow = ({toggleHover, animStatus, price}) => {
+const GetNow = ({toggleHover, animStatus, price, dev}) => {
 
     return (
         <div className='get-now-container ' onMouseEnter={() => toggleHover('mouseover')} onMouseLeave={() => toggleHover('mouseout')}>
@@ -14,7 +14,7 @@ const GetNow = ({toggleHover, animStatus, price}) => {
                 <div className='get-now-price'>
                     <p className='price price-new'>
                         <Ruble/>
-                        {price}
+                        dev:{dev}
                     </p>
                     <p className='price price-old'>
                         <Ruble/>
