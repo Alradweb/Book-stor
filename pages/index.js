@@ -10,7 +10,8 @@ import {MediaProvider} from '../context/context'
 
 
 //import CheckMark from "../components/icons/CheckMark"
-import fetch from 'isomorphic-unfetch'; //test
+import fetch from 'isomorphic-unfetch';
+import Description from "../components/description/Description" //test
 //import {UserAgentProvider} from '@quentin-sommer/react-useragent'
 
 
@@ -178,37 +179,17 @@ class Index extends React.Component {
         const {getCurrentProduct, setIndex, getPortion, changeAnimStatus, toggleHover} = this
         const{hydrationComplete, animStatus, pause} = this.state
         const{title, description, publicationDate, price} = getCurrentProduct()
-        const device = hydrationComplete ?   this.state.device : this.props.device
+        const device = hydrationComplete ? this.state.device : this.props.device
         //console.log(this.props.device , this.state.device)
         return (
             <Layout title='Main page'>
                 <MediaProvider value={device}>
-                <div className='product-description'>
-                    <Row className='product-row'>
-                        <Col xs='4' className='flex-column'>
-                            <Logo height={32} width={43}/>
-                            <button className='btn btn-danger product-btn'>Подробнее</button>
-                        </Col>
-                        <Col xs='8' className='description'>
-                            <div className='description-container'>
-                                <div className='description-main'>
-                                    <h5 className='description-title'>{title}</h5>
-                                    <p>{description.substring(0, 300)
-                                    .concat('...')}</p>
-                                </div>
-                                <div className='description-sub'>
-                                    <time>{publicationDate} |</time>
-                                    <span className='description-genre'> Фантастика</span>
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
-                </div>
+                <Description description={description} title={title} publicationDate={publicationDate}/>
                 <section className='content-container'>
                     <Container fluid>
                         <Row>
                             <Col xs='6' className='get-now'>
-                                <GetNow dev={this.props.device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
+                                <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
                             </Col>
                             <Col xs='6'>
 

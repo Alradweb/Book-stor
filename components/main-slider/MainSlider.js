@@ -16,7 +16,7 @@ const MainSlider = ({items, portion, setIndex, changeAnimStatus, pause, toggleHo
             <MediaConsumer>
                 {
                     (device)=>{
-                        console.log('MainSlider--',device)
+                        //console.log('MainSlider--',device)
                         if(device === 'mobile') return null
                         return ( <Conveyor portion={portion} toggleHover={toggleHover}/>)
                     }
