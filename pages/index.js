@@ -2,18 +2,18 @@ import './main.scss'
 import {Container, Row, Col} from 'reactstrap'
 import Layout from "../components/layout/Layout"
 import Link from "next/link"
-import Zoom from 'react-reveal/Zoom'
+//import Zoom from 'react-reveal/Zoom'
 import MainSlider from "../components/main-slider/MainSlider"
 import GetNow from "../components/get-now/GetNow"
 import Logo from "../components/logo/Logo"
 import {MediaProvider} from '../context/context'
-const parser = require('ua-parser-js');
 
-import CheckMark from "../components/icons/CheckMark"
+
+//import CheckMark from "../components/icons/CheckMark"
 import fetch from 'isomorphic-unfetch'; //test
 //import {UserAgentProvider} from '@quentin-sommer/react-useragent'
 
-console.log(parser)
+
 const items = [
     {
         id: 1,
@@ -82,25 +82,64 @@ const items = [
 
 ]
 
-//import test from '../static/test.jpg'
+
 class Index extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             index: 0,
             animStatus: true,
-            pause: 'mouseout'
+            pause: 'mouseout',
+            device: 'desktop',
+            hydrationComplete: false
         }
     }
     static async getInitialProps({req}) {
         //const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
         //const data = await res.json();
-        const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
-       // console.log(`Show data fetched. Count: ${data.length}`);
+        const parser = eval("require('ua-parser-js')") // prevent downloading on the client
+        const userAgent = req ? req.headers['user-agent'] : null
+       // console.log(`КУКАРЕКУ: ${parser(userAgent).device.type}`);
+
+         let device
+        if(typeof window === 'undefined'){
+            device = parser(userAgent).device.type || 'desktop'
+            console.log('YES isServer')
+        }else {
+            console.log('NOT isServer')
+        }
+
         return {
             //shows: data.map(entry => entry.show),
-            device : parser(userAgent).device.type
+            device
         }
+    }
+    componentDidMount(){
+         const device = this.setDeviceType()
+        window.addEventListener('resize', this.onResize)
+        this.setState({
+            hydrationComplete: true,
+            device
+        })
+    }
+    componentWillUnmount(){
+        window.removeEventListener('resize', this.onResize)
+    }
+    setDeviceType = () =>{
+        const width = document.documentElement.clientWidth
+        const checkSize = (width)=>{
+              if(width < 576) return 'mobile'
+              if(width > 576 && width < 1080) return 'tablet'
+              return 'desktop'
+        }
+        return  checkSize(width)
+    }
+    onResize = () => {
+        const device = this.setDeviceType()
+        if(this.state.device === device) return
+        this.setState({
+            device
+        })
     }
     setIndex = (index) => {
         this.setState({
@@ -114,7 +153,7 @@ class Index extends React.Component {
     }
     getCurrentProduct = () => items[this.state.index]
     getPortion = () => {
-        console.log(this.props)
+        //console.log('this.props.device-',this.props.device)
         const quantity = 4
         const {length} = items
         const boundary = length - quantity
@@ -137,12 +176,13 @@ class Index extends React.Component {
     }
     render() {
         const {getCurrentProduct, setIndex, getPortion, changeAnimStatus, toggleHover} = this
-        const{animStatus, pause} = this.state
+        const{hydrationComplete, animStatus, pause} = this.state
         const{title, description, publicationDate, price} = getCurrentProduct()
-        //console.log(description.length)
+        const device = hydrationComplete ?   this.state.device : this.props.device
+        //console.log(this.props.device , this.state.device)
         return (
             <Layout title='Main page'>
-
+                <MediaProvider value={device}>
                 <div className='product-description'>
                     <Row className='product-row'>
                         <Col xs='4' className='flex-column'>
@@ -171,7 +211,7 @@ class Index extends React.Component {
                                 <GetNow dev={this.props.device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
                             </Col>
                             <Col xs='6'>
-                                <MediaProvider device={this.props.device}>
+
                                     <MainSlider
                                         items={items}
                                         setIndex={setIndex}
@@ -180,12 +220,12 @@ class Index extends React.Component {
                                         pause={pause}
                                         toggleHover={toggleHover}
                                     />
-                                </MediaProvider>
+
                             </Col>
                         </Row>
                     </Container>
                 </section>
-
+            </MediaProvider>
             </Layout>
         )
 

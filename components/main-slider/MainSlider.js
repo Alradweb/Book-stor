@@ -1,4 +1,4 @@
-import {UserAgent} from '@quentin-sommer/react-useragent'
+import {MediaConsumer} from '../../context/context'
 import MySlider from "../slider/Slider"
 import Conveyor from "../conveyor/Сonveyor"
 import './main-slider.scss'
@@ -13,9 +13,15 @@ const MainSlider = ({items, portion, setIndex, changeAnimStatus, pause, toggleHo
                       changeAnimStatus={changeAnimStatus}
                       pause={pause}
             />
-            <UserAgent tablet computer>
-                <Conveyor portion={portion} toggleHover={toggleHover}/>
-            </UserAgent>
+            <MediaConsumer>
+                {
+                    (device)=>{
+                        console.log('MainSlider--',device)
+                        if(device === 'mobile') return null
+                        return ( <Conveyor portion={portion} toggleHover={toggleHover}/>)
+                    }
+                }
+            </MediaConsumer>
         </div>
     )
 }
