@@ -98,16 +98,17 @@ class Index extends React.Component {
     static async getInitialProps({req}) {
         //const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
         //const data = await res.json();
-        const parser = eval("require('ua-parser-js')") // prevent downloading on the client
-        const userAgent = req ? req.headers['user-agent'] : null
+
        // console.log(`КУКАРЕКУ: ${parser(userAgent).device.type}`);
 
          let device
         if(typeof window === 'undefined'){
+            const parser = eval("require('ua-parser-js')") // prevent downloading on the client
+            const userAgent = req ? req.headers['user-agent'] : null
             device = parser(userAgent).device.type || 'desktop'
-            console.log('YES isServer')
+            console.log('YES isServer, getInitialProps сработал')
         }else {
-            console.log('NOT isServer')
+            console.log('NOT isServer. getInitialProps сработал')
         }
 
         return {
@@ -182,16 +183,16 @@ class Index extends React.Component {
         const device = hydrationComplete ? this.state.device : this.props.device
         //console.log(this.props.device , this.state.device)
         return (
-            <Layout title='Main page'>
-                <MediaProvider value={device}>
+            <MediaProvider value={device}>
+            <Layout title='Main page' device={device}>
                 <Description description={description} title={title} publicationDate={publicationDate}/>
                 <section className='content-container'>
                     <Container fluid>
                         <Row>
-                            <Col xs='6' className='get-now'>
+                            <Col xs='12' md={6} className='get-now'>
                                 <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
                             </Col>
-                            <Col xs='6'>
+                            <Col xs='12' md={6}>
 
                                     <MainSlider
                                         items={items}
@@ -206,8 +207,8 @@ class Index extends React.Component {
                         </Row>
                     </Container>
                 </section>
-            </MediaProvider>
             </Layout>
+            </MediaProvider>
         )
 
     }

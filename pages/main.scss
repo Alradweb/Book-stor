@@ -7,11 +7,17 @@
   bottom: 0;
   text-align: center;
   color: $mainFontColor;
-  p {
-    font-size: $mainFontSize;
-  }
+  //p {
+  //  font-size: $mainFontSize;
+  //}
 }
 .get-now {
-  top: -100px;
+  top: 94px;
+}
+
+@media (min-width: 768px) {
+  .get-now {
+    top: -150px;
+  }
 }
 

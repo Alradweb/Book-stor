@@ -5,10 +5,67 @@
   text-align: center;
   align-items: center;
   justify-content: space-between;
-  .get-now-btn{
-    margin-top: 35px;
-    margin-bottom: 40px;
+
+}
+.get-now-btn{
+  margin-top: 35px;
+  margin-bottom: 40px;
+}
+.get-now-profit{
+  font-size: 28px;
+  margin-bottom: 15px;
+
+  svg{
+    margin-right: 15px;
+    width: 28px;
+    height: 28px;
   }
+}
+.get-now-price{
+  display: flex;
+  align-items: baseline;
+}
+.price-new{
+  font-size: 42px;
+  margin-right: 30px;
+
+  svg{
+    width: 30px;
+    height: 30px;
+    fill: $mainFontColor;
+    margin-right: 5px;
+  }
+}
+.price-old{
+  position: relative;
+  font-size: 36px;
+
+  &::before{
+    position: absolute;
+    content: '';
+    height: 4px;
+    width: 80px;
+    background-color: #DE032B;
+    top: 50%;
+    left: -3px;
+    transform: rotate(-1deg);
+  }
+  svg{
+    width: 26px;
+    height: 26px;
+    fill: $mainFontColor;
+    margin-right: 5px;
+  }
+}
+@media (max-width: 768px) {
+  .get-now-btn{
+    margin-left: 250px;
+  }
+  .get-now-price{
+    margin-left: 250px;
+  }
+}
+@media (min-width: 862px) {
   .get-now-profit{
     font-size: 32px;
     margin-bottom: 15px;
@@ -19,45 +76,4 @@
       height: 32px;
     }
   }
-}
-.get-now-price{
-  display: flex;
-  align-items: baseline;
-
-  .price{
-
-  }
-  .price-new{
-    font-size: 42px;
-    margin-right: 30px;
-
-    svg{
-      width: 30px;
-      height: 30px;
-      fill: $mainFontColor;
-      margin-right: 5px;
-    }
-  }
-  .price-old{
-    position: relative;
-    font-size: 36px;
-
-    &::before{
-      position: absolute;
-      content: '';
-      height: 4px;
-      width: 80px;
-      background-color: #DE032B;
-      top: 50%;
-      left: -3px;
-      transform: rotate(-1deg);
-    }
-    svg{
-      width: 26px;
-      height: 26px;
-      fill: $mainFontColor;
-      margin-right: 5px;
-    }
-  }
-
 }

@@ -16,7 +16,7 @@ const Layout = props => {
             <Head>
                 <title>{props.title}</title>
             </Head>
-            <Header/>
+            <Header device={props.device}/>
             <main>
                 <div className='decoration-container' aria-hidden={'true'}>
                     <div className='decoration'>

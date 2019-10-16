@@ -5,13 +5,13 @@ import NavBar from "../nav-bar/NavBar"
 
 
 const Header = props => {
-    //console.log(props)
+    //console.log(props)  height={64} width={87}
     return (
         <header className='header'>
             <Link href="/">
-                <div>
-                    <Logo height={64} width={87}/>
-                </div>
+                <a>
+                    <Logo device={props.device}/>
+                </a>
             </Link>
             {/*<NavBar/>*/}
         </header>

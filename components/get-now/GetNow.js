@@ -14,7 +14,7 @@ const GetNow = ({toggleHover, animStatus, price, dev}) => {
                 <div className='get-now-price'>
                     <p className='price price-new'>
                         <Ruble/>
-                        dev:{dev}
+                        {price}
                     </p>
                     <p className='price price-old'>
                         <Ruble/>
