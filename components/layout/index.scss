@@ -3,8 +3,8 @@
 }
 
 html, body, #__next {
-  height: 100%;
-  width: 100%;
+  //height: 100%;
+ // width: 100%;
 }
 
 body {
@@ -15,15 +15,31 @@ body {
   //sans-serif;
   //-webkit-font-smoothing: antialiased;
   //-moz-osx-font-smoothing: grayscale;
-  min-width: 320px;
+  min-height: 100%;
+  width: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-  monospace;
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+
 }
 
-#root {
-  display: flex;
-  flex-direction: column;
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+
 }

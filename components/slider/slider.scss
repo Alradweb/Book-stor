@@ -30,8 +30,11 @@
 .phone{
   position: relative;
   //height: 40%;
-  height: 360px;
-  width: 250px;
+  //height: 360px;
+  //width: 250px;
+  height: 262px;
+  /* height: inherit; */
+  width: 188px;
   background: linear-gradient(330deg, #011120 15%, #0D141A 70%, #14191D 94%);
   border-top: 25px solid #fcfcfc;
   border-left: 25px solid #fcfcfc;

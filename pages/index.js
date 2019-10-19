@@ -10,8 +10,9 @@ import {MediaProvider} from '../context/context'
 
 
 //import CheckMark from "../components/icons/CheckMark"
-import fetch from 'isomorphic-unfetch';
-import Description from "../components/description/Description" //test
+import fetch from 'isomorphic-unfetch'
+import Description from "../components/description/Description"
+import Conveyor from "../components/conveyor/Сonveyor" //test
 //import {UserAgentProvider} from '@quentin-sommer/react-useragent'
 
 
@@ -95,19 +96,21 @@ class Index extends React.Component {
             hydrationComplete: false
         }
     }
+
     static async getInitialProps({req}) {
         //const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
         //const data = await res.json();
 
-       // console.log(`КУКАРЕКУ: ${parser(userAgent).device.type}`);
+        // console.log(`КУКАРЕКУ: ${parser(userAgent).device.type}`);
 
-         let device
-        if(typeof window === 'undefined'){
-            const parser = eval("require('ua-parser-js')") // prevent downloading on the client
+        let device
+        if (typeof window === 'undefined') {
+            // prevent downloading on the client
+            const parser = eval("require('ua-parser-js')")
             const userAgent = req ? req.headers['user-agent'] : null
             device = parser(userAgent).device.type || 'desktop'
-            console.log('YES isServer, getInitialProps сработал')
-        }else {
+            console.log(`YES isServer, ${device}`)
+        } else {
             console.log('NOT isServer. getInitialProps сработал')
         }
 
@@ -116,29 +119,37 @@ class Index extends React.Component {
             device
         }
     }
-    componentDidMount(){
-         const device = this.setDeviceType()
+
+    componentDidMount() {
+        const device = this.setDeviceType()
         window.addEventListener('resize', this.onResize)
         this.setState({
             hydrationComplete: true,
             device
         })
     }
-    componentWillUnmount(){
+
+    componentWillUnmount() {
         window.removeEventListener('resize', this.onResize)
     }
-    setDeviceType = () =>{
+
+    setDeviceType = () => {
         const width = document.documentElement.clientWidth
-        const checkSize = (width)=>{
-              if(width < 576) return 'mobile'
-              if(width > 576 && width < 1080) return 'tablet'
-              return 'desktop'
+        // const checkSize = (width)=>{
+        //       if(width < 576) return 'mobile'
+        //       if(width > 576 && width < 1080) return 'tablet'
+        //       return 'desktop'
+        // }
+        const checkSize = (width) => {
+            if (width < 576) return 'mobile'
+            if (width > 576 && width < 1080) return 'tablet'
+            return 'desktop'
         }
-        return  checkSize(width)
+        return checkSize(width)
     }
     onResize = () => {
         const device = this.setDeviceType()
-        if(this.state.device === device) return
+        if (this.state.device === device) return
         this.setState({
             device
         })
@@ -168,46 +179,46 @@ class Index extends React.Component {
         }
         return items.slice(this.state.index + 1, this.state.index + quantity + 1)
     }
-    toggleHover = hover =>{
-        if(this.state.pause === hover) return
-        this.setState(state =>{
-            return{
+    toggleHover = hover => {
+        if (this.state.pause === hover) return
+        this.setState(state => {
+            return {
                 pause: hover
             }
         })
     }
+
     render() {
         const {getCurrentProduct, setIndex, getPortion, changeAnimStatus, toggleHover} = this
-        const{hydrationComplete, animStatus, pause} = this.state
-        const{title, description, publicationDate, price} = getCurrentProduct()
+        const {hydrationComplete, animStatus, pause} = this.state
+        const {title, description, publicationDate, price} = getCurrentProduct()
         const device = hydrationComplete ? this.state.device : this.props.device
         //console.log(this.props.device , this.state.device)
         return (
             <MediaProvider value={device}>
-            <Layout title='Main page' device={device}>
-                <Description description={description} title={title} publicationDate={publicationDate}/>
-                <section className='content-container'>
-                    <Container fluid>
-                        <Row>
-                            <Col xs='12' md={6} className='get-now'>
+                <Layout title='Main page' device={device}>
+                    <Container fluid className='wrapper'>
+                        <Row style={{height: '100%'}}>
+                            <Col xs={12} sm={12} md={12} lg={6}>
                                 <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
                             </Col>
-                            <Col xs='12' md={6}>
-
-                                    <MainSlider
-                                        items={items}
-                                        setIndex={setIndex}
-                                        portion={getPortion()}
-                                        changeAnimStatus={changeAnimStatus}
-                                        pause={pause}
-                                        toggleHover={toggleHover}
-                                    />
-
+                            <Col xs={12} sm={12} md={12} lg={6}>
+                                <Description
+                                    description={description}
+                                    title={title}
+                                    publicationDate={publicationDate}
+                                    items={items}
+                                    setIndex={setIndex}
+                                    portion={getPortion()}
+                                    changeAnimStatus={changeAnimStatus}
+                                    pause={pause}
+                                    toggleHover={toggleHover}
+                                />
                             </Col>
                         </Row>
                     </Container>
-                </section>
-            </Layout>
+
+                </Layout>
             </MediaProvider>
         )
 

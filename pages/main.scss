@@ -1,5 +1,16 @@
 @import "../styles/theme/theme";
+.wrapper{
+  //position: absolute;
+  //top: 94px;
+  //height: calc(100% - 94px);
+  //width: 100%;
 
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 70%;
+}
 .content-container {
   position: absolute;
   width: 100%;
@@ -11,13 +22,13 @@
   //  font-size: $mainFontSize;
   //}
 }
-.get-now {
-  top: 94px;
-}
-
-@media (min-width: 768px) {
-  .get-now {
-    top: -150px;
-  }
-}
+//.get-now {
+//  top: 189px;
+//}
+//
+//@media (min-width: 768px) {
+//  .get-now {
+//    top: -150px;
+//  }
+//}
 
