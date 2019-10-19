@@ -4,7 +4,6 @@ import {
     CarouselCaption
 } from 'reactstrap'
 import Fade from 'react-reveal/Fade'
-//import {UserAgent} from '@quentin-sommer/react-useragent'
 import './slider.scss'
 
 
@@ -52,13 +51,11 @@ class MySlider extends React.Component {
         this.setState({activeIndex: newIndex})
     }
 
-    triggerHover =(ev) =>{
-
+    triggerHover = ev =>{
         const event = new MouseEvent(ev, {
             view: window,
             bubbles: true
         })
-        //console.log(this.sliderRef.current)
         this.sliderRef.current.dispatchEvent(event)
     }
     componentDidUpdate(prevProps, prevState) {
@@ -81,14 +78,14 @@ class MySlider extends React.Component {
                             <img src={item.src} alt={item.title} className='image'/>
                         </Fade>
                     </div>
-                    <CarouselCaption captionText={''} captionHeader={''}/>
+                    {/*<CarouselCaption captionText={''} captionHeader={''}/>*/}
                 </CarouselItem>
             )
         })
 
         return (
             <>
-                <div className='hren'>
+                <div className='phone-decoration'>
                     <div className='phone' >
                         <Carousel
                             ride={'carousel'}
@@ -96,7 +93,7 @@ class MySlider extends React.Component {
                             activeIndex={activeIndex}
                             next={this.next}
                             previous={this.previous}
-                            interval={2000}
+                            interval={8000}
                         >
 
                             {slides}
@@ -104,8 +101,6 @@ class MySlider extends React.Component {
                         </Carousel>
                     </div>
                 </div>
-                {/*<button onClick={() =>this.triggerHover('mouseover')} ref={this.mouseOverBtn}>TRIGGER</button>*/}
-                {/*<button onClick={() =>this.triggerHover('mouseout')}>END</button>*/}
             </>
         )
     }

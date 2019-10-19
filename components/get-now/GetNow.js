@@ -7,7 +7,7 @@ const GetNow = ({toggleHover, animStatus, price, dev}) => {
 
     return (
         <div className='get-now-container ' onMouseEnter={() => toggleHover('mouseover')} onMouseLeave={() => toggleHover('mouseout')}>
-            <p className='get-now-profit'><CheckMark/>Выгодное предложение</p>
+            <p className='get-now-profit'><CheckMark/>{dev}</p>
             <p className='get-now-profit'><CheckMark/>Выгодное предложение</p>
             <Zoom when={animStatus}>
                 <button className='btn btn-danger get-now-btn'>КУПИТЬ СЕЙЧАС</button>

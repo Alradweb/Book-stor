@@ -135,14 +135,11 @@ class Index extends React.Component {
 
     setDeviceType = () => {
         const width = document.documentElement.clientWidth
-        // const checkSize = (width)=>{
-        //       if(width < 576) return 'mobile'
-        //       if(width > 576 && width < 1080) return 'tablet'
-        //       return 'desktop'
-        // }
         const checkSize = (width) => {
-            if (width < 576) return 'mobile'
-            if (width > 576 && width < 1080) return 'tablet'
+            //if (width < 576) return 'mobile'
+            if (width < 768) return 'mobile'
+            // if (width >= 576 && width < 1080) return 'tablet'
+            if (width >= 768 && width < 992) return 'tablet'
             return 'desktop'
         }
         return checkSize(width)
@@ -199,10 +196,10 @@ class Index extends React.Component {
                 <Layout title='Main page' device={device}>
                     <Container fluid className='wrapper'>
                         <Row style={{height: '100%'}}>
-                            <Col xs={12} sm={12} md={12} lg={6} className='d-flex justify-content-around'>
+                            <Col xs={12} sm={12} md={12} lg={6} className='d-flex justify-content-around col-price'>
                                 <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
                             </Col>
-                            <Col xs={12} sm={12} md={12} lg={6}>
+                            <Col xs={12} sm={12} md={12} lg={6} className='col-product'>
                                 <Description
                                     description={description}
                                     title={title}

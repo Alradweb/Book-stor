@@ -12,8 +12,24 @@ const Description = ({description, title, publicationDate, items, portion, setIn
                 device =>{
                     //const smallDevice = device === 'mobile' || device === 'tablet'
                     const smallDevice = device === 'mobile'
+                    const tablet = device === 'tablet'
                     const substring = description.substring(0, 307)
                     .concat('...')
+                    if(tablet || smallDevice) return (
+                        <Row>
+                            <Col xs={12}>
+                                <MainSlider
+                                    items={items}
+                                    setIndex={setIndex}
+                                    portion={portion}
+                                    changeAnimStatus={changeAnimStatus}
+                                    pause={pause}
+                                    toggleHover={toggleHover}
+                                    device={device}
+                                />
+                            </Col>
+                        </Row>
+                    )
                   return   smallDevice ? null : (
                       <div className='product-description'>
                           <Row className='row-top'>

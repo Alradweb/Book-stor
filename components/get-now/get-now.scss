@@ -61,6 +61,17 @@
     margin-right: 5px;
   }
 }
+@media (min-width: 1920px) {
+  .get-now-profit{
+    font-size: 32px;
+    svg{
+      margin-right: 15px;
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
 //@media (max-width: 768px) {
 //  .get-now-btn{
 //    margin-left: 250px;

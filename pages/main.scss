@@ -26,9 +26,15 @@
 //  top: 189px;
 //}
 //
-//@media (min-width: 768px) {
-//  .get-now {
-//    top: -150px;
-//  }
-//}
+@media (max-width: 991px) {
+  .wrapper {
+   height: 100%;
+  }
+  .col-price{
+    height: 50%;
+  }
+  .col-product{
+    height: 50%;
+  }
+}
 
