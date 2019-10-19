@@ -199,7 +199,7 @@ class Index extends React.Component {
                 <Layout title='Main page' device={device}>
                     <Container fluid className='wrapper'>
                         <Row style={{height: '100%'}}>
-                            <Col xs={12} sm={12} md={12} lg={6}>
+                            <Col xs={12} sm={12} md={12} lg={6} className='d-flex justify-content-around'>
                                 <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
                             </Col>
                             <Col xs={12} sm={12} md={12} lg={6}>

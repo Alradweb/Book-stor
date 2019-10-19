@@ -61,11 +61,14 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  padding-left: 0;
+  margin-left: -3px;
 }
 .description-container {
   display: flex;
   flex-direction: column;
   height: 100%;
+  //transform: translate(-24px, 10px);
 }
 .description-main{
   display: flex;
@@ -90,16 +93,14 @@
    // width: 44%;
     .description-title{
       font-size: 36px;
-      padding-top: 40px;
+      //padding-top: 40px;
       margin-bottom: 20px;
+    }
+    .description-sub {
+      margin-bottom: 35px;
     }
     p{
       font-size: $largeFontSize;
-    }
-    .product-row{
-      .product-btn{
-        margin-top: calc(50% + 38px);
-      }
     }
 
   }

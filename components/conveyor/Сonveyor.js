@@ -5,23 +5,30 @@ import './conveyor.scss'
 
 const Conveyor = ({portion, toggleHover}) => {
     return (
-        <div className="conveyor">
-            <Fade right>
-                <ul>
-                    {portion.map(item => {
-                        return (
+        <div className='d-flex flex-column align-items-center' style={{height: '100%'}}>
+            <div>
+                <button className='btn btn-danger'>Подробнее</button>
+            </div>
+            <div className="conveyor">
 
-                            <li key={item.id} onMouseEnter={() => toggleHover('mouseover')} onMouseLeave={() => toggleHover('mouseout')}>
-                                <Zoom right>
-                                    <img src={item.src}/>
-                                </Zoom>
-                            </li>
+                <Fade right>
+                    <ul>
+                        {portion.map(item => {
+                            return (
 
-                        )
-                    })}
-                </ul>
-            </Fade>
+                                <li key={item.id} onMouseEnter={() => toggleHover('mouseover')} onMouseLeave={() => toggleHover('mouseout')}>
+                                    <Zoom right>
+                                        <img src={item.src}/>
+                                    </Zoom>
+                                </li>
+
+                            )
+                        })}
+                    </ul>
+                </Fade>
+            </div>
         </div>
+
     )
 }
 export default Conveyor
