@@ -93,6 +93,7 @@ class Index extends React.Component {
             animStatus: true,
             pause: 'mouseout',
             device: 'desktop',
+            orientation: 'landscape',
             hydrationComplete: false
         }
     }
@@ -121,11 +122,12 @@ class Index extends React.Component {
     }
 
     componentDidMount() {
-        const device = this.setDeviceType()
+        const {device, orientation} = this.setDeviceType()
         window.addEventListener('resize', this.onResize)
         this.setState({
             hydrationComplete: true,
-            device
+            device,
+            orientation
         })
     }
 
@@ -134,21 +136,30 @@ class Index extends React.Component {
     }
 
     setDeviceType = () => {
+        const screenOrientation = () => {
+            const orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type
+            if (orientation === 'landscape-primary' || orientation === 'landscape-secondary') {
+                return 'landscape'
+            } else return 'portrait'
+        }
+
         const width = document.documentElement.clientWidth
         const checkSize = (width) => {
-            //if (width < 576) return 'mobile'
             if (width < 768) return 'mobile'
-            // if (width >= 576 && width < 1080) return 'tablet'
             if (width >= 768 && width < 992) return 'tablet'
             return 'desktop'
         }
-        return checkSize(width)
+        return {
+            device: checkSize(width),
+            orientation: screenOrientation()
+        }
     }
     onResize = () => {
-        const device = this.setDeviceType()
-        if (this.state.device === device) return
+        const {device, orientation} = this.setDeviceType()
+        if (this.state.device === device && this.state.orientation === orientation) return
         this.setState({
-            device
+            device,
+            orientation
         })
     }
     setIndex = (index) => {
@@ -187,32 +198,56 @@ class Index extends React.Component {
 
     render() {
         const {getCurrentProduct, setIndex, getPortion, changeAnimStatus, toggleHover} = this
-        const {hydrationComplete, animStatus, pause} = this.state
+        const {hydrationComplete, animStatus, pause, orientation} = this.state
         const {title, description, publicationDate, price} = getCurrentProduct()
         const device = hydrationComplete ? this.state.device : this.props.device
+       // const showGetNow = (device === 'desktop' || (device === 'tablet' && orientation === 'landscape'))
+        const desktopContent  = device === 'desktop'
+        console.log('this.state--', this.state.device, orientation)
         //console.log(this.props.device , this.state.device)
+        const descriptionComponent = (
+            <Description
+                description={description}
+                title={title}
+                publicationDate={publicationDate}
+                items={items}
+                setIndex={setIndex}
+                portion={getPortion()}
+                changeAnimStatus={changeAnimStatus}
+                pause={pause}
+                toggleHover={toggleHover}
+                orientation={orientation}
+                price={price}
+                animStatus={animStatus}
+            />
+        )
+        const getNowComponent = (
+            <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus} orientation={orientation}/>
+        )
         return (
             <MediaProvider value={device}>
                 <Layout title='Main page' device={device}>
-                    <Container fluid className='wrapper'>
-                        <Row style={{height: '100%'}}>
-                            <Col xs={12} sm={12} md={12} lg={6} className='d-flex justify-content-around col-price'>
-                                <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
-                            </Col>
-                            <Col xs={12} sm={12} md={12} lg={6} className='col-product'>
-                                <Description
-                                    description={description}
-                                    title={title}
-                                    publicationDate={publicationDate}
-                                    items={items}
-                                    setIndex={setIndex}
-                                    portion={getPortion()}
-                                    changeAnimStatus={changeAnimStatus}
-                                    pause={pause}
-                                    toggleHover={toggleHover}
-                                />
-                            </Col>
-                        </Row>
+                    <Container fluid className='main-wrapper'>
+                        <Row className='main-row' >
+                        {
+                            desktopContent ? (
+                                <>
+                                    <Col xs={12} sm={12} md={12} lg={6}
+                                         className='d-flex justify-content-around'>
+                                        {getNowComponent}
+                                    </Col>
+                                    <Col xs={12} sm={12} md={12} lg={6}>
+                                        {descriptionComponent}
+                                    </Col>
+                               </>
+                            ) : (
+                                <>
+                                    {descriptionComponent}
+                                </>
+
+                            )
+                        }
+                            </Row>
                     </Container>
 
                 </Layout>

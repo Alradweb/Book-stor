@@ -1,14 +1,24 @@
 @import "../styles/theme/theme";
-.wrapper{
-  //position: absolute;
-  //top: 94px;
-  //height: calc(100% - 94px);
-  //width: 100%;
-
+.main-wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: relative;
   width: 100%;
-  margin-top: auto;
-  margin-bottom: auto;
+  /* display: flex; */
+ // margin-top: auto;
+  height: 100%;
+  /* margin-bottom: auto; */
+ // height: calc(100vh - 94px);
+
+  //position: relative;
+  //width: 100%;
+  //margin-top: auto;
+  //margin-bottom: auto;
+  //height: 70%;
+}
+.main-row{
+  width: 100%;
   height: 70%;
 }
 .content-container {
@@ -26,15 +36,16 @@
 //  top: 189px;
 //}
 //
+
 @media (max-width: 991px) {
-  .wrapper {
-   height: 100%;
-  }
-  .col-price{
-    height: 50%;
-  }
-  .col-product{
-    height: 50%;
-  }
+  //.wrapper {
+  // height: 100%;
+  //}
+  //.col-price{
+  //  height: 50%;
+  //}
+  //.col-product{
+  //  height: 50%;
+  //}
 }
 

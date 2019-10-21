@@ -61,6 +61,51 @@
     margin-right: 5px;
   }
 }
+@media (max-width : 991px) {
+  .get-now-btn{
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .get-now-profit{
+    font-size: 18px;
+    margin-bottom: 15px;
+
+    svg{
+      margin-right: 15px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+  .price-old{
+
+    font-size: 32px;
+
+    &::before{
+      height: 4px;
+      width: 80px;
+      top: 50%;
+      left: -5px;
+      transform: rotate(-1deg);
+    }
+    svg{
+      width: 24px;
+      height: 24px;
+
+      margin-right: 5px;
+    }
+  }
+  .price-new{
+    font-size: 35px;
+
+
+    svg{
+      width: 26px;
+      height: 26px;
+      fill: $mainFontColor;
+      margin-right: 5px;
+    }
+  }
+}
 @media (min-width: 1920px) {
   .get-now-profit{
     font-size: 32px;

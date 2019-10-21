@@ -66,7 +66,9 @@ class MySlider extends React.Component {
     }
     render() {
         const {activeIndex} = this.state
+        const tablet = this.props.device === 'tablet'
         const slides = this.props.items.map((item) => {
+
             return (
                 <CarouselItem
                     onExiting={this.onExiting}
@@ -75,14 +77,13 @@ class MySlider extends React.Component {
                 >
                     <div className='image-container' ref={this.sliderRef} >
                         <Fade right>
-                            <img src={item.src} alt={item.title} className='image'/>
+                            <img src={item.src} alt={item.title} className='image' />
                         </Fade>
                     </div>
                     {/*<CarouselCaption captionText={''} captionHeader={''}/>*/}
                 </CarouselItem>
             )
         })
-
         return (
             <>
                 <div className='phone-decoration'>
@@ -93,7 +94,7 @@ class MySlider extends React.Component {
                             activeIndex={activeIndex}
                             next={this.next}
                             previous={this.previous}
-                            interval={8000}
+                            interval={2000}
                         >
 
                             {slides}

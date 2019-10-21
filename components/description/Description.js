@@ -4,33 +4,37 @@ import './description.scss'
 import {MediaConsumer} from '../../context/context'
 import MainSlider from "../main-slider/MainSlider"
 import Conveyor from "../conveyor/Сonveyor"
+import GetNow from "../get-now/GetNow"
+import MySlider from "../slider/Slider"
 
-const Description = ({description, title, publicationDate, items, portion, setIndex, changeAnimStatus, pause, toggleHover}) =>{
+const Description = ({description, title, publicationDate, items, portion, setIndex, changeAnimStatus, pause, toggleHover, orientation,price, animStatus}) =>{
     return(
         <MediaConsumer>
             {
                 device =>{
                     //const smallDevice = device === 'mobile' || device === 'tablet'
-                    const smallDevice = device === 'mobile'
-                    const tablet = device === 'tablet'
+                    const smallDevice = device === 'mobile' || device === 'tablet'
                     const substring = description.substring(0, 307)
                     .concat('...')
-                    if(tablet || smallDevice) return (
-                        <Row>
-                            <Col xs={12}>
-                                <MainSlider
-                                    items={items}
-                                    setIndex={setIndex}
-                                    portion={portion}
-                                    changeAnimStatus={changeAnimStatus}
-                                    pause={pause}
-                                    toggleHover={toggleHover}
-                                    device={device}
-                                />
-                            </Col>
-                        </Row>
+                    if(smallDevice && orientation === 'landscape') return (
+                            <>
+                                <Col xs={6}
+                                     className='d-flex justify-content-around '>
+                                    <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus} orientation={orientation}/>
+                                </Col>
+                                <Col xs={6} className='d-flex justify-content-around align-items-center'>
+                                    <MySlider items={items}
+                                              setIndex={setIndex}
+                                              changeAnimStatus={changeAnimStatus}
+                                              pause={pause}
+                                    />
+                                </Col>
+                            </>
                     )
-                  return   smallDevice ? null : (
+                    if(smallDevice && orientation === 'portrait') return (
+                        <h1 style={{color: 'white'}}>TODO / orientation === 'portrait'</h1>
+                    )
+                  return (
                       <div className='product-description'>
                           <Row className='row-top'>
                               <Col xs='4' className='flex-column'>

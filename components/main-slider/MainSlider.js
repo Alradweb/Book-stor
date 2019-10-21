@@ -6,20 +6,14 @@ import {Row, Col} from "reactstrap"
 
 
 const MainSlider = ({items, portion, setIndex, changeAnimStatus, pause, toggleHover, device = 'desktop'}) => {
-    if(device === 'tablet'){
+    if (device === 'tablet') {
         return (
-            <Row>
-                <Col xs={3}>
-                    <MySlider items={items}
-                              setIndex={setIndex}
-                              changeAnimStatus={changeAnimStatus}
-                              pause={pause}
-                    />
-                </Col>
-                <Col xs={9}>
-                    <Conveyor portion={portion} toggleHover={toggleHover}/>
-                </Col>
-            </Row>
+            <MySlider items={items}
+                      device={device}
+                      setIndex={setIndex}
+                      changeAnimStatus={changeAnimStatus}
+                      pause={pause}
+            />
         )
     }
     return (
@@ -33,16 +27,6 @@ const MainSlider = ({items, portion, setIndex, changeAnimStatus, pause, toggleHo
             </Col>
             <Col xs={8} className='conveyor-col'>
                 <Conveyor portion={portion} toggleHover={toggleHover}/>
-                {/*<MediaConsumer>*/}
-                {/*    {*/}
-                {/*        (device)=>{*/}
-                {/*            //return null*/}
-                {/*            console.log('MainSlider--',device)*/}
-                {/*            if(device === 'mobile') return null*/}
-                {/*            return ( <Conveyor portion={portion} toggleHover={toggleHover}/>)*/}
-                {/*        }*/}
-                {/*    }*/}
-                {/*</MediaConsumer>*/}
             </Col>
         </Row>
     )
