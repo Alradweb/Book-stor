@@ -34,8 +34,8 @@
   width: 188px;
   background: linear-gradient(330deg, #011120 15%, #0D141A 70%, #14191D 94%);
   border-top: 25px solid #fcfcfc;
-  border-left: 25px solid #fcfcfc;
-  border-right: 25px solid #fcfcfc;
+  border-left: 15px solid #fcfcfc;
+  border-right: 15px solid #fcfcfc;
   border-bottom: 34px solid #fcfcfc;
   border-radius: 7%;
   overflow: hidden;
@@ -50,19 +50,16 @@
     height: auto;
   }
 }
-.image-container-tablet{
-  //display: flex;
-  //justify-content: space-around;
-  //align-items: center;
-  .image-tablet{
-    display: block;
-    height: 300px;
-    width: auto;
+.image-container-full{
+  //width: 300px;
+  height: inherit;
+  .image{
+   // max-width: 100%;
+    //height: auto;
+
   }
 }
-.gopa{
 
-}
 @media (min-width: 1920px) {
   .phone-decoration{
     height: 465px;

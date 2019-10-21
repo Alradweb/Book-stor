@@ -144,6 +144,8 @@ class Index extends React.Component {
         }
 
         const width = document.documentElement.clientWidth
+        console.log('Device width-', width)
+        console.log('Device height-', document.documentElement.clientHeight)
         const checkSize = (width) => {
             if (width < 768) return 'mobile'
             if (width >= 768 && width < 992) return 'tablet'

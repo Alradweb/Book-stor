@@ -32,7 +32,14 @@ const Description = ({description, title, publicationDate, items, portion, setIn
                             </>
                     )
                     if(smallDevice && orientation === 'portrait') return (
-                        <h1 style={{color: 'white'}}>TODO / orientation === 'portrait'</h1>
+                        <Col xs={12} className='d-flex justify-content-around align-items-center'>
+                            <MySlider items={items}
+                                      setIndex={setIndex}
+                                      changeAnimStatus={changeAnimStatus}
+                                      pause={pause}
+                                      fullSize
+                            />
+                        </Col>
                     )
                   return (
                       <div className='product-description'>

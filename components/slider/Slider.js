@@ -12,7 +12,8 @@ class MySlider extends React.Component {
         super(props)
         this.state = {
             activeIndex: 0,
-            // pause: 'mouseout'
+            deviceWidth : 300,
+            deviceHeight : 400
         }
         this.next = this.next.bind(this)
         this.previous = this.previous.bind(this)
@@ -21,7 +22,19 @@ class MySlider extends React.Component {
         this.onExited = this.onExited.bind(this)
         this.sliderRef = React.createRef()
     }
-
+    componentDidMount(){
+        this.changeDeviceSize()
+        // 200 / 320
+    }
+    changeDeviceSize = () =>{
+        const width = document.documentElement.clientWidth - 32
+        //const height = document.documentElement.clientHeight - 100
+        const height = width * 1.625
+        this.setState({
+            deviceWidth : width,
+            deviceHeight : height
+        })
+    }
     onExiting() {
         this.animating = true
         this.props.changeAnimStatus(!!this.animating)
@@ -65,25 +78,41 @@ class MySlider extends React.Component {
         }
     }
     render() {
-        const {activeIndex} = this.state
-        const tablet = this.props.device === 'tablet'
+        const {activeIndex, deviceWidth, deviceHeight} = this.state
         const slides = this.props.items.map((item) => {
-
             return (
                 <CarouselItem
                     onExiting={this.onExiting}
                     onExited={this.onExited}
                     key={item.id}
                 >
-                    <div className='image-container' ref={this.sliderRef} >
+                    <div className={this.props.fullSize ? 'image-container-full' : 'image-container'} ref={this.sliderRef} >
                         <Fade right>
-                            <img src={item.src} alt={item.title} className='image' />
+                            <img src={item.src}
+                                 alt={item.title}
+                                 className='image'
+                                 width={deviceWidth}
+                                 height={deviceHeight} />
                         </Fade>
                     </div>
-                    {/*<CarouselCaption captionText={''} captionHeader={''}/>*/}
+                    <CarouselCaption captionText={'captionText'} captionHeader={'captionHeader'}/>
                 </CarouselItem>
             )
         })
+        if(this.props.fullSize){
+            return (
+                <Carousel
+                    ride={'carousel'}
+                    keyboard={false}
+                    activeIndex={activeIndex}
+                    next={this.next}
+                    previous={this.previous}
+                    interval={2000}
+                >
+                    {slides}
+                </Carousel>
+            )
+        }
         return (
             <>
                 <div className='phone-decoration'>
@@ -96,9 +125,7 @@ class MySlider extends React.Component {
                             previous={this.previous}
                             interval={2000}
                         >
-
                             {slides}
-
                         </Carousel>
                     </div>
                 </div>
