@@ -15,7 +15,7 @@ const Description = ({description, title, publicationDate, items, portion, setIn
 
                     const {device, orientation, deviceWidth, deviceHeight} = dev
                     const smallDevice = device === 'mobile' || device === 'tablet'
-                    console.log(deviceWidth)
+                    //console.log(deviceWidth)
                     const substring = description.substring(0, 307)
                     .concat('...')
                     if(smallDevice && orientation === 'landscape') return (
@@ -42,7 +42,9 @@ const Description = ({description, title, publicationDate, items, portion, setIn
                                       deviceWidth={deviceWidth}
                                       deviceHeight={deviceHeight}
                                       fullSize
-                            />
+                            >
+                                <GetNow price={price} animStatus={animStatus} toggleHover={toggleHover} portrait/>
+                            </MySlider>
                         </Col>
                     )
                   return (

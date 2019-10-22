@@ -5,6 +5,7 @@ import {
 } from 'reactstrap'
 import Fade from 'react-reveal/Fade'
 import './slider.scss'
+import GetNow from "../get-now/GetNow"
 
 
 class MySlider extends React.Component {
@@ -94,8 +95,9 @@ class MySlider extends React.Component {
                                  width={deviceWidth}
                                  height={deviceHeight} />
                         </Fade>
+                        {this.props.children}
                     </div>
-                    {/*<CarouselCaption captionText={'captionText'} captionHeader={'captionHeader'}/>*/}
+                    {/*<CarouselCaption captionText={''} captionHeader={'captionHeader'}/>*/}
                 </CarouselItem>
             )
         })

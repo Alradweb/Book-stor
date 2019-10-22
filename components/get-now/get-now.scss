@@ -11,6 +11,21 @@
 
 
 }
+.get-now-portrait{
+  position: absolute;
+  //background: rgb(66,59,175);
+  left: 0;
+  right: 0;
+  top: calc(40%);
+ // background: linear-gradient(90deg, rgba(66,59,175,0) 0%, rgba(2,0,36,1) 33%, rgba(2,0,36,1) 67%, rgba(66,59,175,0) 100%);
+  //background: linear-gradient(330deg, #011120 15%, #0D141A 70%, #14191D 94%);
+  background: rgb(1,17,32);
+  background: linear-gradient(330deg, rgba(1,17,32,0.9108018207282913) 15%, rgba(13,20,26,1) 70%, rgba(20,25,29,0.9164040616246498) 94%);
+
+  p{
+    margin-top: 16px;
+  }
+}
 .get-now-btn{
   margin-top: 35px;
   margin-bottom: 40px;
