@@ -27,7 +27,7 @@ class MySlider extends React.Component {
         const availableHeight = deviceHeight - 64
        // console.log('availableHeight', availableHeight)
         let height = width * 1.625
-        if(height > availableHeight) height = availableHeight - 30
+        if(height > availableHeight) height = availableHeight
        // console.log('Height', height)
         return {
             deviceWidth : width,

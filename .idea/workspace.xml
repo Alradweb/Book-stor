@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a983eec-9599-4aa0-90c3-37b8d96f1edd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/description/Description.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/description/Description.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/logo/Logo.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/logo/Logo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/main-slider/MainSlider.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/main-slider/MainSlider.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/slider/Slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/slider/Slider.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/slider/slider.scss" beforeDir="false" afterPath="$PROJECT_DIR$/components/slider/slider.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/pages/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/pages/main.scss" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -25,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pages/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2528">
-              <caret line="239" column="84" lean-forward="true" selection-start-line="239" selection-start-column="84" selection-end-line="239" selection-end-column="84" />
+            <state relative-caret-position="165">
+              <caret line="151" column="10" selection-start-line="151" selection-start-column="10" selection-end-line="151" selection-end-column="10" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
                 <element signature="e#185#246#0" expanded="true" />
@@ -101,7 +96,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/main-slider/MainSlider.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
+            <state relative-caret-position="51">
               <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
               <folding>
                 <element signature="e#54#93#0" expanded="true" />
@@ -113,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/description/Description.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="39" column="51" lean-forward="true" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+            <state relative-caret-position="102">
+              <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -187,8 +182,8 @@
         <option value="$PROJECT_DIR$/pages/main.scss" />
         <option value="$PROJECT_DIR$/components/slider/slider.scss" />
         <option value="$PROJECT_DIR$/components/main-slider/MainSlider.js" />
-        <option value="$PROJECT_DIR$/pages/index.js" />
         <option value="$PROJECT_DIR$/components/description/Description.js" />
+        <option value="$PROJECT_DIR$/pages/index.js" />
         <option value="$PROJECT_DIR$/components/slider/Slider.js" />
       </list>
     </option>
@@ -337,12 +332,12 @@
       <workItem from="1571387136694" duration="9837000" />
       <workItem from="1571470117869" duration="41497000" />
       <workItem from="1571656203444" duration="9239000" />
-      <workItem from="1571728668581" duration="7012000" />
+      <workItem from="1571728668581" duration="8970000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="295281000" />
+    <option name="totallyTimeSpent" value="297239000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -653,7 +648,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/main-slider/MainSlider.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
+        <state relative-caret-position="51">
           <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
           <folding>
             <element signature="e#54#93#0" expanded="true" />
@@ -663,8 +658,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/components/description/Description.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="39" column="51" lean-forward="true" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+        <state relative-caret-position="102">
+          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -673,8 +668,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pages/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2528">
-          <caret line="239" column="84" lean-forward="true" selection-start-line="239" selection-start-column="84" selection-end-line="239" selection-end-column="84" />
+        <state relative-caret-position="165">
+          <caret line="151" column="10" selection-start-line="151" selection-start-column="10" selection-end-line="151" selection-end-column="10" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
             <element signature="e#185#246#0" expanded="true" />

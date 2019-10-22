@@ -164,14 +164,16 @@ class Index extends React.Component {
         }
     }
     onResize = () => {
-        const {device, orientation, deviceWidth, deviceHeight} = this.setDeviceType()
-        if (this.state.device === device && this.state.orientation === orientation) return
-        this.setState({
-            device,
-            orientation,
-            deviceWidth,
-            deviceHeight
-        })
+        setTimeout(()=>{
+            const {device, orientation, deviceWidth, deviceHeight} = this.setDeviceType()
+            if (this.state.device === device && this.state.orientation === orientation) return
+            this.setState({
+                device,
+                orientation,
+                deviceWidth,
+                deviceHeight
+            })
+        },0)
     }
     setIndex = (index) => {
         this.setState({

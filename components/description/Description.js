@@ -12,9 +12,10 @@ const Description = ({description, title, publicationDate, items, portion, setIn
         <MediaConsumer>
             {
                 (dev) =>{
-                   console.log(dev)
+
                     const {device, orientation, deviceWidth, deviceHeight} = dev
                     const smallDevice = device === 'mobile' || device === 'tablet'
+                    console.log(deviceWidth)
                     const substring = description.substring(0, 307)
                     .concat('...')
                     if(smallDevice && orientation === 'landscape') return (
