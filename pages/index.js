@@ -94,6 +94,8 @@ class Index extends React.Component {
             pause: 'mouseout',
             device: 'desktop',
             orientation: 'landscape',
+            deviceWidth : 300,
+            deviceHeight : 400,
             hydrationComplete: false
         }
     }
@@ -106,8 +108,8 @@ class Index extends React.Component {
 
         let device
         if (typeof window === 'undefined') {
-            // prevent downloading on the client
-            const parser = eval("require('ua-parser-js')")
+
+            const parser = eval("require('ua-parser-js')")  // prevent downloading on the client
             const userAgent = req ? req.headers['user-agent'] : null
             device = parser(userAgent).device.type || 'desktop'
             console.log(`YES isServer, ${device}`)
@@ -122,12 +124,14 @@ class Index extends React.Component {
     }
 
     componentDidMount() {
-        const {device, orientation} = this.setDeviceType()
+        const {device, orientation, deviceWidth, deviceHeight} = this.setDeviceType()
         window.addEventListener('resize', this.onResize)
         this.setState({
             hydrationComplete: true,
             device,
-            orientation
+            orientation,
+            deviceWidth,
+            deviceHeight
         })
     }
 
@@ -144,8 +148,9 @@ class Index extends React.Component {
         }
 
         const width = document.documentElement.clientWidth
-        console.log('Device width-', width)
-        console.log('Device height-', document.documentElement.clientHeight)
+        const height = document.documentElement.clientHeight
+        //console.log('Device width-', width)
+       // console.log('Device height-', document.documentElement.clientHeight)
         const checkSize = (width) => {
             if (width < 768) return 'mobile'
             if (width >= 768 && width < 992) return 'tablet'
@@ -153,15 +158,19 @@ class Index extends React.Component {
         }
         return {
             device: checkSize(width),
-            orientation: screenOrientation()
+            orientation: screenOrientation(),
+            deviceWidth : width,
+            deviceHeight : height
         }
     }
     onResize = () => {
-        const {device, orientation} = this.setDeviceType()
+        const {device, orientation, deviceWidth, deviceHeight} = this.setDeviceType()
         if (this.state.device === device && this.state.orientation === orientation) return
         this.setState({
             device,
-            orientation
+            orientation,
+            deviceWidth,
+            deviceHeight
         })
     }
     setIndex = (index) => {
@@ -200,12 +209,13 @@ class Index extends React.Component {
 
     render() {
         const {getCurrentProduct, setIndex, getPortion, changeAnimStatus, toggleHover} = this
-        const {hydrationComplete, animStatus, pause, orientation} = this.state
+        const {hydrationComplete, animStatus, pause, orientation, deviceWidth, deviceHeight} = this.state
         const {title, description, publicationDate, price} = getCurrentProduct()
         const device = hydrationComplete ? this.state.device : this.props.device
        // const showGetNow = (device === 'desktop' || (device === 'tablet' && orientation === 'landscape'))
         const desktopContent  = device === 'desktop'
-        console.log('this.state--', this.state.device, orientation)
+        const portraitSmallDevice = !desktopContent && orientation === 'portrait'
+        //console.log('this.state--', this.state.device, orientation)
         //console.log(this.props.device , this.state.device)
         const descriptionComponent = (
             <Description
@@ -227,10 +237,10 @@ class Index extends React.Component {
             <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus} orientation={orientation}/>
         )
         return (
-            <MediaProvider value={device}>
+            <MediaProvider value={{device, orientation, deviceWidth, deviceHeight}}>
                 <Layout title='Main page' device={device}>
                     <Container fluid className='main-wrapper'>
-                        <Row className='main-row' >
+                        <Row className={portraitSmallDevice ? 'portrait-row' : 'main-row'} >
                         {
                             desktopContent ? (
                                 <>

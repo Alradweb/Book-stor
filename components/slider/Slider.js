@@ -11,9 +11,8 @@ class MySlider extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            activeIndex: 0,
-            deviceWidth : 300,
-            deviceHeight : 400
+            activeIndex: 0
+
         }
         this.next = this.next.bind(this)
         this.previous = this.previous.bind(this)
@@ -22,18 +21,18 @@ class MySlider extends React.Component {
         this.onExited = this.onExited.bind(this)
         this.sliderRef = React.createRef()
     }
-    componentDidMount(){
-        this.changeDeviceSize()
-        // 200 / 320
-    }
-    changeDeviceSize = () =>{
-        const width = document.documentElement.clientWidth - 32
-        //const height = document.documentElement.clientHeight - 100
-        const height = width * 1.625
-        this.setState({
+
+    changeDeviceSize = ({deviceWidth = 300, deviceHeight = 400}) =>{
+        const width = deviceWidth - 30
+        const availableHeight = deviceHeight - 64
+       // console.log('availableHeight', availableHeight)
+        let height = width * 1.625
+        if(height > availableHeight) height = availableHeight - 30
+       // console.log('Height', height)
+        return {
             deviceWidth : width,
             deviceHeight : height
-        })
+        }
     }
     onExiting() {
         this.animating = true
@@ -78,7 +77,8 @@ class MySlider extends React.Component {
         }
     }
     render() {
-        const {activeIndex, deviceWidth, deviceHeight} = this.state
+        const {activeIndex} = this.state
+        const {deviceWidth, deviceHeight} = this.changeDeviceSize(this.props)
         const slides = this.props.items.map((item) => {
             return (
                 <CarouselItem
@@ -95,7 +95,7 @@ class MySlider extends React.Component {
                                  height={deviceHeight} />
                         </Fade>
                     </div>
-                    <CarouselCaption captionText={'captionText'} captionHeader={'captionHeader'}/>
+                    {/*<CarouselCaption captionText={'captionText'} captionHeader={'captionHeader'}/>*/}
                 </CarouselItem>
             )
         })

@@ -7,12 +7,13 @@ import Conveyor from "../conveyor/Сonveyor"
 import GetNow from "../get-now/GetNow"
 import MySlider from "../slider/Slider"
 
-const Description = ({description, title, publicationDate, items, portion, setIndex, changeAnimStatus, pause, toggleHover, orientation,price, animStatus}) =>{
+const Description = ({description, title, publicationDate, items, portion, setIndex, changeAnimStatus, pause, toggleHover,price, animStatus}) =>{
     return(
         <MediaConsumer>
             {
-                device =>{
-                    //const smallDevice = device === 'mobile' || device === 'tablet'
+                (dev) =>{
+                   console.log(dev)
+                    const {device, orientation, deviceWidth, deviceHeight} = dev
                     const smallDevice = device === 'mobile' || device === 'tablet'
                     const substring = description.substring(0, 307)
                     .concat('...')
@@ -37,6 +38,8 @@ const Description = ({description, title, publicationDate, items, portion, setIn
                                       setIndex={setIndex}
                                       changeAnimStatus={changeAnimStatus}
                                       pause={pause}
+                                      deviceWidth={deviceWidth}
+                                      deviceHeight={deviceHeight}
                                       fullSize
                             />
                         </Col>

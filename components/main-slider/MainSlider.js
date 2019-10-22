@@ -1,4 +1,4 @@
-import {MediaConsumer} from '../../context/context'
+//import {MediaConsumer} from '../../context/context'
 import MySlider from "../slider/Slider"
 import Conveyor from "../conveyor/Сonveyor"
 import './main-slider.scss'
