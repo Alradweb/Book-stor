@@ -33,7 +33,7 @@ class Index extends React.Component {
             const parser = eval("require('ua-parser-js')")  // prevent downloading on the client
             const userAgent = req ? req.headers['user-agent'] : null
             device = parser(userAgent).device.type || 'desktop'
-            //console.log(`YES isServer, ${device}`)
+            console.log(`YES isServer, ${device}`)
         } else {
             console.log('NOT isServer. getInitialProps сработал')
         }
@@ -128,6 +128,9 @@ class Index extends React.Component {
     }
 
     render() {
+
+
+        //console.log(url)
         const {getCurrentProduct, setIndex, getPortion, changeAnimStatus, toggleHover} = this
         const {hydrationComplete, animStatus, pause, orientation, deviceWidth, deviceHeight} = this.state
         const {title, description, publicationDate, price} = getCurrentProduct()
@@ -155,7 +158,7 @@ class Index extends React.Component {
         )
         return (
             <MediaProvider value={{device, orientation, deviceWidth, deviceHeight}}>
-                <Layout title='Main page' device={device}>
+                <Layout title='Main page' device={device} >
                     <Container fluid className='main-wrapper'>
                         <Row className={portraitSmallDevice ? 'portrait-row' : 'main-row'}>
                             {
