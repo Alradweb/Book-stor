@@ -3,7 +3,6 @@ import Logo from "../logo/Logo"
 import './description.scss'
 import {MediaConsumer} from '../../context/context'
 import MainSlider from "../main-slider/MainSlider"
-import Conveyor from "../conveyor/Сonveyor"
 import GetNow from "../get-now/GetNow"
 import MySlider from "../slider/Slider"
 

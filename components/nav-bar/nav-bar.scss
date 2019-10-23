@@ -26,3 +26,20 @@
     color: $highlight;
   }
 }
+.menu-button {
+  height: 28px;
+  width: 28px;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  z-index: 999;
+  }
+.menu-open{
+  background-color: #2a3747;
+  min-height: calc(100vh - 40px);
+  position: absolute;
+  left: 10px;
+  top: 5px;
+  right: 10px;
+
+}

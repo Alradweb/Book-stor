@@ -8,12 +8,13 @@ const Header = props => {
     //console.log(props)  height={64} width={87}
     return (
         <header className='header'>
-            <Link href="/">
-                <a>
-                    <Logo device={props.device}/>
-                </a>
-            </Link>
-            {/*<NavBar/>*/}
+            <NavBar>
+                <Link href="/">
+                    <a>
+                        <Logo device={props.device}/>
+                    </a>
+                </Link>
+            </NavBar>
         </header>
     )
 }

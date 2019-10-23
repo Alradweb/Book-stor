@@ -2,87 +2,12 @@ import './main.scss'
 import {Container, Row, Col} from 'reactstrap'
 import Layout from "../components/layout/Layout"
 import Link from "next/link"
-//import Zoom from 'react-reveal/Zoom'
-import MainSlider from "../components/main-slider/MainSlider"
 import GetNow from "../components/get-now/GetNow"
-import Logo from "../components/logo/Logo"
 import {MediaProvider} from '../context/context'
-
-
-//import CheckMark from "../components/icons/CheckMark"
 import fetch from 'isomorphic-unfetch'
 import Description from "../components/description/Description"
-import Conveyor from "../components/conveyor/Сonveyor" //test
-//import {UserAgentProvider} from '@quentin-sommer/react-useragent'
+import items from '../data'
 
-
-const items = [
-    {
-        id: 1,
-        title: 'Поиск предназначения',
-        publicationDate: 1995,
-        description: 'Этот роман — о времени. Об эпохе. О людях. По сути дела, как и большинство произведений Стругацких, этот роман — поиск предназначения не героя, и не «человека вообще», а вполне конкретных людей. «Поиск предназначения» — произведение, во-первых, антисоветское, начиная с того, что один из центральных героев — диссидент, да и весь роман проникнут соответствующим пафосом. Люди, окружающие Стаса Красногорова, очень и очень мало напоминают героев «Понедельника». Зато гораздо больше, чем последние, напоминают реальных людей.',
-        author: 'Борис Стругацкий',
-        src: 'https://img2.labirint.ru/books/587258/big.jpg',
-        price: 20
-    },
-    {
-        id: 2,
-        title: 'Трудно быть богом',
-        publicationDate: 1964,
-        description: 'Дерзкое и богатое воображение авторов заглядывает через века, создает фантастический мир. Кто он, благородный дон Румата Эсторский? Как живет в нем душа Антона, мальчика с далекой Земли, посланника-энтузиаста из Института экспериментальной истории? Вместе с Руматой Эсторским нас мучают сомнения: как жить перед лицом человеческого горя, перед лицом смерти? Как оставаться Богом - высшим существом, знающим законы истории и потому не обнажающим меча?',
-        author: "Аркадий Стругацкий, Борис Стругацкий",
-        src: 'https://j.livelib.ru/boocover/1000013607/200/1596/Arkadij_i_Boris_Strugatskie__Trudno_byt_bogom.jpg',
-        price: 42
-
-    },
-    {
-        id: 3,
-        title: 'Улитка на склоне',
-        publicationDate: 1972,
-        description: 'Улитка на склоне". Самое странное, самое неоднозначное произведение в богатом творческом наследии братьев Стругацких. Произведение, в котором собственно фантастика, "магический реализм" и даже некоторые оттенки психоделики переплетены в удивительно талантливое оригинальное единое целое.',
-        author: "Аркадий Стругацкий, Борис Стругацкий",
-        src: 'https://j.livelib.ru/boocover/1000319929/200/5810/A._Strugatskij_B._Strugatskij__Ulitka_na_sklone.jpg',
-        price: 23
-    },
-    {
-        id: 4,
-        title: 'Отель «У Погибшего Альпиниста»',
-        publicationDate: 1970,
-        description: 'Отель У Погибшего Альпинистаеоднозначное произведение в богатом творческом наследии братьев Стругацких. Произведение, в котором собственно фантастика, "магический реализм" и даже некоторые оттенки психоделики переплетены в удивительно талантливое оригинальное единое целое.',
-        author: "Аркадий Стругацкий, Борис Стругацкий",
-        src: 'https://marketut.ru/wa-data/public/shop/products/23/31/163123/images/129630/129630.750.jpg',
-        price: 18
-    },
-    {
-        id: 5,
-        title: 'За миллиард лет до конца света',
-        publicationDate: 1976,
-        description: 'За миллиард лет до конца света начное произведение в богатом творческом наследии братьев Стругацких. Произведение, в котором собственно фантастика, "магический реализм" и даже некоторые оттенки психоделики переплетены в удивительно талантливое оригинальное единое целое.',
-        author: "Аркадий Стругацкий, Борис Стругацкий",
-        src: 'https://img-gorod.ru/25/121/2512181_detail.jpg',
-        price: 12
-    },
-    {
-        id: 6,
-        title: 'Град обреченный',
-        publicationDate: 1989,
-        description: 'Улитка на склоне". Самое странное, самое неоднозначное произведение в богатом творческом наследии братьев Стругацких. Произведение, в котором собственно фантастика, "магический реализм" и даже некоторые оттенки психоделики переплетены в удивительно талантливое оригинальное единое целое.',
-        author: "Аркадий Стругацкий, Борис Стругацкий",
-        src: 'https://cdn1.ozone.ru/multimedia/c1200/1015086517.jpg',
-        price: 19
-    },
-    {
-        id: 7,
-        title: 'Понедельник начинается в субботу',
-        publicationDate: 1965,
-        description: 'Понедельник начинается в субботуе". Самое странное, самое неоднозначное произведение в богатом творческом наследии братьев Стругацких. Произведение, в котором собственно фантастика, "магический реализм" и даже некоторые оттенки психоделики переплетены в удивительно талантливое оригинальное единое целое.',
-        author: "Аркадий Стругацкий, Борис Стругацкий",
-        src: 'https://upload.wikimedia.org/wikipedia/ru/1/16/%D0%9F%D0%BE%D0%BD%D0%B5%D0%B4%D0%B5%D0%BB%D1%8C%D0%BD%D0%B8%D0%BA_%D0%BD%D0%B0%D1%87%D0%B8%D0%BD%D0%B0%D0%B5%D1%82%D1%81%D1%8F_%D0%B2_%D1%81%D1%83%D0%B1%D0%B1%D0%BE%D1%82%D1%83.jpg',
-        price: 46
-    },
-
-]
 
 
 class Index extends React.Component {
@@ -94,8 +19,8 @@ class Index extends React.Component {
             pause: 'mouseout',
             device: 'desktop',
             orientation: 'landscape',
-            deviceWidth : 300,
-            deviceHeight : 400,
+            deviceWidth: 300,
+            deviceHeight: 400,
             hydrationComplete: false
         }
     }
@@ -103,16 +28,12 @@ class Index extends React.Component {
     static async getInitialProps({req}) {
         //const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
         //const data = await res.json();
-
-        // console.log(`КУКАРЕКУ: ${parser(userAgent).device.type}`);
-
         let device
         if (typeof window === 'undefined') {
-
             const parser = eval("require('ua-parser-js')")  // prevent downloading on the client
             const userAgent = req ? req.headers['user-agent'] : null
             device = parser(userAgent).device.type || 'desktop'
-            console.log(`YES isServer, ${device}`)
+            //console.log(`YES isServer, ${device}`)
         } else {
             console.log('NOT isServer. getInitialProps сработал')
         }
@@ -142,16 +63,13 @@ class Index extends React.Component {
     setDeviceType = () => {
         const screenOrientation = () => {
             const orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type
-            if (orientation === 'landscape-primary' || orientation === 'landscape-secondary') {
-                return 'landscape'
-            } else return 'portrait'
+            const landscape = orientation === 'landscape-primary' || orientation === 'landscape-secondary'
+            if (landscape) return 'landscape'
+            return 'portrait'
         }
-
         const width = document.documentElement.clientWidth
         const height = document.documentElement.clientHeight
-        //console.log('Device width-', width)
-       // console.log('Device height-', document.documentElement.clientHeight)
-        const checkSize = (width) => {
+        const checkSize = width => {
             if (width < 768) return 'mobile'
             if (width >= 768 && width < 992) return 'tablet'
             return 'desktop'
@@ -159,12 +77,12 @@ class Index extends React.Component {
         return {
             device: checkSize(width),
             orientation: screenOrientation(),
-            deviceWidth : width,
-            deviceHeight : height
+            deviceWidth: width,
+            deviceHeight: height
         }
     }
     onResize = () => {
-        setTimeout(()=>{
+        setTimeout(() => {
             const {device, orientation, deviceWidth, deviceHeight} = this.setDeviceType()
             if (this.state.device === device && this.state.orientation === orientation) return
             this.setState({
@@ -173,7 +91,7 @@ class Index extends React.Component {
                 deviceWidth,
                 deviceHeight
             })
-        },0)
+        }, 0)
     }
     setIndex = (index) => {
         this.setState({
@@ -214,11 +132,8 @@ class Index extends React.Component {
         const {hydrationComplete, animStatus, pause, orientation, deviceWidth, deviceHeight} = this.state
         const {title, description, publicationDate, price} = getCurrentProduct()
         const device = hydrationComplete ? this.state.device : this.props.device
-       // const showGetNow = (device === 'desktop' || (device === 'tablet' && orientation === 'landscape'))
-        const desktopContent  = device === 'desktop'
+        const desktopContent = device === 'desktop'
         const portraitSmallDevice = !desktopContent && orientation === 'portrait'
-        //console.log('this.state--', this.state.device, orientation)
-        //console.log(this.props.device , this.state.device)
         const descriptionComponent = (
             <Description
                 description={description}
@@ -236,34 +151,32 @@ class Index extends React.Component {
             />
         )
         const getNowComponent = (
-            <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus} orientation={orientation}/>
+            <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
         )
         return (
             <MediaProvider value={{device, orientation, deviceWidth, deviceHeight}}>
                 <Layout title='Main page' device={device}>
                     <Container fluid className='main-wrapper'>
-                        <Row className={portraitSmallDevice ? 'portrait-row' : 'main-row'} >
-                        {
-                            desktopContent ? (
-                                <>
-                                    <Col xs={12} sm={12} md={12} lg={6}
-                                         className='d-flex justify-content-around'>
-                                        {getNowComponent}
-                                    </Col>
-                                    <Col xs={12} sm={12} md={12} lg={6}>
+                        <Row className={portraitSmallDevice ? 'portrait-row' : 'main-row'}>
+                            {
+                                desktopContent ? (
+                                    <>
+                                        <Col xs={12} sm={12} md={12} lg={6}
+                                             className='d-flex justify-content-around'>
+                                            {getNowComponent}
+                                        </Col>
+                                        <Col xs={12} sm={12} md={12} lg={6}>
+                                            {descriptionComponent}
+                                        </Col>
+                                    </>
+                                ) : (
+                                   <>
                                         {descriptionComponent}
-                                    </Col>
-                               </>
-                            ) : (
-                                <>
-                                    {descriptionComponent}
-                                </>
-
-                            )
-                        }
-                            </Row>
+                                  </>
+                                )
+                            }
+                        </Row>
                     </Container>
-
                 </Layout>
             </MediaProvider>
         )

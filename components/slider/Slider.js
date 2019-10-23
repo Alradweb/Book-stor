@@ -1,11 +1,9 @@
 import {
     Carousel,
-    CarouselItem,
-    CarouselCaption
+    CarouselItem
 } from 'reactstrap'
 import Fade from 'react-reveal/Fade'
 import './slider.scss'
-import GetNow from "../get-now/GetNow"
 
 
 class MySlider extends React.Component {
@@ -13,7 +11,6 @@ class MySlider extends React.Component {
         super(props)
         this.state = {
             activeIndex: 0
-
         }
         this.next = this.next.bind(this)
         this.previous = this.previous.bind(this)
@@ -26,10 +23,8 @@ class MySlider extends React.Component {
     changeDeviceSize = ({deviceWidth = 300, deviceHeight = 400}) =>{
         const width = deviceWidth - 30
         const availableHeight = deviceHeight - 64
-       // console.log('availableHeight', availableHeight)
         let height = width * 1.625
         if(height > availableHeight) height = availableHeight
-       // console.log('Height', height)
         return {
             deviceWidth : width,
             deviceHeight : height
@@ -43,7 +38,6 @@ class MySlider extends React.Component {
 
     onExited() {
         this.animating = false
-
     }
 
     next() {
@@ -74,7 +68,6 @@ class MySlider extends React.Component {
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.pause !== this.props.pause) {
             this.triggerHover(this.props.pause)
-            //console.log(this.props.pause, prevProps.pause)
         }
     }
     render() {
@@ -97,7 +90,6 @@ class MySlider extends React.Component {
                         </Fade>
                         {this.props.children}
                     </div>
-                    {/*<CarouselCaption captionText={''} captionHeader={'captionHeader'}/>*/}
                 </CarouselItem>
             )
         })

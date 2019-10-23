@@ -1,8 +1,7 @@
-//import {MediaConsumer} from '../../context/context'
+import {Row, Col} from "reactstrap"
 import MySlider from "../slider/Slider"
 import Conveyor from "../conveyor/Сonveyor"
 import './main-slider.scss'
-import {Row, Col} from "reactstrap"
 
 
 const MainSlider = ({items, portion, setIndex, changeAnimStatus, pause, toggleHover, device = 'desktop'}) => {
