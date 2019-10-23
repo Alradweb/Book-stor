@@ -1,25 +1,29 @@
 import './nav-bar.scss'
-
-
-import React, { useState } from 'react';
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+import Fade from 'react-reveal/Fade'
+import Spin from 'react-reveal/Spin';
+import React, {useState} from 'react'
+import {Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink} from 'reactstrap'
 import MenuIcon from "../icons/MenuIcon"
 
 const NavBar = (props) => {
-    const [collapsed, setCollapsed] = useState(true);
+    const [collapsed, setCollapsed] = useState(true)
 
     const toggleNavbar = (toggle) => {
-
-        setCollapsed(toggle);
+        setCollapsed(toggle)
     }
 
     return (
 
-            <Navbar color="transparent" dark>
-                {props.children}
-                {/*<NavbarToggler onClick={toggleNavbar} className="" />*/}
-                <button onClick={() =>toggleNavbar(!collapsed)} className='menu-button'><MenuIcon open={!collapsed}/></button>
-                <Collapse isOpen={!collapsed} navbar className='menu-open'>
+        <Navbar color="transparent" dark>
+            {props.children}
+            {/*<NavbarToggler onClick={toggleNavbar} className="" />*/}
+            <Spin when={!collapsed}>
+            <button onClick={() => toggleNavbar(!collapsed)} className='menu-button'>
+                <MenuIcon open={!collapsed}/>
+            </button>
+            </Spin>
+            <Collapse isOpen={!collapsed} navbar className='menu-open'>
+                <Fade top>
                     <div className='menu-popup'>
                         {/*<button onClick={() =>toggleNavbar(true)} className='menu-button'><MenuIcon/></button>*/}
                         <Nav navbar className={'justify-content-end'}>
@@ -31,9 +35,11 @@ const NavBar = (props) => {
                             </NavItem>
                         </Nav>
                     </div>
-                </Collapse>
-            </Navbar>
-    );
+                </Fade>
+            </Collapse>
+
+        </Navbar>
+    )
 }
 
 export default NavBar
