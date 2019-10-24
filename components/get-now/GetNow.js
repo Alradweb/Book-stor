@@ -8,14 +8,13 @@ const GetNow = ({toggleHover, animStatus, price, portrait}) => {
     if (portrait) classes.push('get-now-portrait')
     return (
 
-            <div className={classes.join(' ')} onMouseEnter={() => toggleHover('mouseover')}
-                 onMouseLeave={() => toggleHover('mouseout')}>
-                <p className='get-now-profit'><CheckMark/>Выгодное предложение</p>
-                <p className='get-now-profit'><CheckMark/>Выгодное предложение</p>
-
-                <button className='btn btn-danger get-now-btn'>КУПИТЬ СЕЙЧАС</button>
-                <div className='get-now-price'>
-                    <Zoom when={animStatus}>
+        <div className={classes.join(' ')} onMouseEnter={() => toggleHover('mouseover')}
+             onMouseLeave={() => toggleHover('mouseout')}>
+            <p className='get-now-profit'><CheckMark/>Выгодное предложение</p>
+            <p className='get-now-profit'><CheckMark/>Выгодное предложение</p>
+            <button className='btn btn-danger get-now-btn'>КУПИТЬ СЕЙЧАС</button>
+            <div className='get-now-price'>
+                <Zoom when={animStatus}>
                     <p className='price price-new'>
                         <Ruble/>
                         {price}
@@ -24,10 +23,9 @@ const GetNow = ({toggleHover, animStatus, price, portrait}) => {
                         <Ruble/>
                         {Math.ceil(price * 1.5)}
                     </p>
-                    </Zoom>
-                </div>
-
+                </Zoom>
             </div>
+        </div>
 
     )
 }
