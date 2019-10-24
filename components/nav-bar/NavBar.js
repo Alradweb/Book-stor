@@ -13,7 +13,10 @@ const routes = [
         href: '/', name: 'Домой', id: 1
     },
     {
-        href: '/cart', name: 'Корзина', id: 2
+        href: '/cart', name: 'Регистрация', id: 2
+    },
+    {
+        href: '/list', name: 'Список книг', id: 3
     }
 
 ]
@@ -22,17 +25,22 @@ function ActiveLink({children, href, toggleNavbar}) {
     const router = useRouter()
     const matched = router.pathname === href
     const style = {
-        color: matched ? 'red' : 'black',
+        color: matched ? 'red' : '',
     }
-
+    const classes = ['menu-link-base']
+    if( matched){
+        classes.push('menu-link-active')
+    }else {
+        classes.push('menu-link')
+    }
     const handleClick = e => {
         e.preventDefault()
         if (matched) toggleNavbar(true)
         router.push(href)
     }
     return (
-        <NavItem>
-            <a href={href} onClick={handleClick} style={style}>
+        <NavItem className='menu-item'>
+            <a className={classes.join(' ')} href={href} onClick={handleClick} >
                 {children}
             </a>
         </NavItem>
@@ -63,8 +71,8 @@ const NavBar = (props) => {
                                 routes.map(({href, id, name}) => {
                                     return (
                                         <ActiveLink href={href} key={id} toggleNavbar={toggleNavbar}>
-                                            <HomeIcon/>
-                                            {name}
+                                                <HomeIcon/>
+                                                {name}
                                         </ActiveLink>
                                     )
                                 })

@@ -11,8 +11,8 @@
 
   background: $primary;
   //border-bottom: 1px solid red;
-  font-family: $core-font;
-  font-size: 22px;
+
+  font-size: 16px;
   color: $on-primary-light;
 
   //box-shadow: 0px -2px 15px rgba(50, 50, 50, 0.45);
@@ -46,13 +46,16 @@
   right: 10px;
 
 }
+//$menu-background-color: #001529;
+$menu-background-color: #38460b;
 .menu-popup{
+  width: 160px;
   height: 90%;
   position: fixed;
   z-index: 100;
   top: 0;
   /* left: 0; */
-  background-color: #001529;
+  background-color: $menu-background-color;
   padding: 16px;
   /* overflow-x: hidden; */
   padding-top: 60px;
@@ -61,13 +64,41 @@
     position: absolute;
     width: 100%;
     left: 0;
-    bottom: -25px;
-    height: 50px;
+    bottom: -30px;
+    height: 60px;
     //background-color: #DE032B;
     //background: rgb(1,17,32);
     //background-image: linear-gradient(202deg, rgba(1,17,32,1) 50%, rgba(20,25,29,0) 50%),
     //                  linear-gradient(159deg, rgba(1,17,32,1) 50%, rgba(20,25,29,0) 50%);
-    background-image: linear-gradient(202deg, #001529 50%, rgba(20, 25, 29, 0) 50%),
-                      linear-gradient(159deg, #001529 50%, rgba(20, 25, 29, 0) 50%);
+    background-image: linear-gradient(200deg, #38460b 50%, rgba(20, 25, 29, 0) 50%),
+                      linear-gradient(160deg, #38460b 50%, rgba(20, 25, 29, 0) 50%);
+  }
+}
+.menu-item{
+  margin-bottom: 8px;
+}
+.menu-link-base{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  svg{
+    margin-right: 8px;
+  }
+}
+.menu-link{
+  color: rgba(255, 255, 255, 0.65);
+  &:hover{
+    color: rgba(255, 255, 255, 0.41);
+    opacity: .5;
+  }
+}
+.menu-link-active{
+  color: $accent-color;
+  &:hover{
+    color: $accent-color;
+    opacity: .5;
+  }
+  .menu-svg-link{
+    fill: $accent-color;
   }
 }
