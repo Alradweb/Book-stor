@@ -1,0 +1,12 @@
+@import "../../styles/theme/theme";
+.page-layout{
+  position: relative;
+  background: linear-gradient(150deg, $secondary-dark 15%, $liner-color-second 70%, #14191D 94%);;
+  min-height: 100vh;
+  header{
+    position: relative;
+  }
+}
+main{
+
+}
