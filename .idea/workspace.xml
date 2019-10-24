@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9a983eec-9599-4aa0-90c3-37b8d96f1edd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/components/icons/HomeIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/icons/HomeIcon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/icons/MenuIcon.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/icons/MenuIcon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/icons/icons.scss" beforeDir="false" afterPath="$PROJECT_DIR$/components/icons/icons.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/layout/layout.scss" beforeDir="false" afterPath="$PROJECT_DIR$/components/layout/layout.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/nav-bar/NavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/nav-bar/NavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/nav-bar/nav-bar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/components/nav-bar/nav-bar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/theme/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/styles/theme/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,22 +18,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/layout/Layout.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/components/nav-bar/NavBar.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
-              <caret line="56" column="19" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
+              <caret line="56" column="19" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
                 <element signature="e#167#204#0" expanded="true" />
@@ -50,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/components/icons/HomeIcon.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+              <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -69,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/components/icons/icons.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="257">
-              <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="13" />
+              <caret line="17" column="13" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -78,28 +62,34 @@
         <entry file="file://$PROJECT_DIR$/components/icons/Ruble.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="20" lean-forward="true" selection-end-line="11" selection-end-column="20" />
+              <caret line="11" column="20" selection-end-line="11" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/header/Header.js">
+        <entry file="file://$PROJECT_DIR$/components/nav-bar/nav-bar.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-253">
+              <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/nav-bar/nav-bar.scss">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-253">
-              <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+            <state relative-caret-position="172">
+              <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/postcss.config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -108,7 +98,7 @@
         <entry file="file://$PROJECT_DIR$/styles/theme/_variables.scss">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="121">
-              <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -156,7 +146,6 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/styles/theme/_fonts.scss" />
         <option value="$PROJECT_DIR$/context/context.js" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/components/logo/logo.scss" />
         <option value="$PROJECT_DIR$/components/header/header.scss" />
         <option value="$PROJECT_DIR$/components/conveyor/Сonveyor.js" />
@@ -184,6 +173,8 @@
         <option value="$PROJECT_DIR$/styles/theme/_variables.scss" />
         <option value="$PROJECT_DIR$/components/nav-bar/NavBar.js" />
         <option value="$PROJECT_DIR$/components/nav-bar/nav-bar.scss" />
+        <option value="$PROJECT_DIR$/postcss.config.js" />
+        <option value="$PROJECT_DIR$/package.json" />
       </list>
     </option>
   </component>
@@ -330,12 +321,12 @@
       <workItem from="1571387136694" duration="9837000" />
       <workItem from="1571470117869" duration="41497000" />
       <workItem from="1571656203444" duration="9239000" />
-      <workItem from="1571728668581" duration="42005000" />
+      <workItem from="1571728668581" duration="43808000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="330274000" />
+    <option name="totallyTimeSpent" value="332077000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -391,7 +382,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/styles/v-20-512.png" />
     <entry file="file://$PROJECT_DIR$/node_modules/reactstrap/lib/Carousel.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2159" />
@@ -496,13 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="62" column="15" lean-forward="true" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -658,7 +641,7 @@
     <entry file="file://$PROJECT_DIR$/components/icons/Ruble.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
-          <caret line="11" column="20" lean-forward="true" selection-end-line="11" selection-end-column="20" />
+          <caret line="11" column="20" selection-end-line="11" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -676,14 +659,14 @@
     <entry file="file://$PROJECT_DIR$/components/icons/icons.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="257">
-          <caret line="17" column="13" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="13" />
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/icons/HomeIcon.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="10" column="1" lean-forward="true" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -697,14 +680,14 @@
     <entry file="file://$PROJECT_DIR$/styles/theme/_variables.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
-          <caret line="16" column="18" lean-forward="true" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/nav-bar/NavBar.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="56" column="19" lean-forward="true" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
+          <caret line="56" column="19" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
             <element signature="e#167#204#0" expanded="true" />
@@ -715,7 +698,21 @@
     <entry file="file://$PROJECT_DIR$/components/nav-bar/nav-bar.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-253">
-          <caret line="37" column="1" lean-forward="true" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/postcss.config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
         </state>
       </provider>
     </entry>
