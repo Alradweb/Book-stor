@@ -38,11 +38,36 @@
 }
 
 .menu-open {
-  background-color: #2a3747;
+  //background: linear-gradient(150deg, $secondary-dark 15%, $liner-color-second 70%, #14191D 94%);
   min-height: calc(100vh - 40px);
   position: absolute;
   left: 10px;
   top: 5px;
   right: 10px;
 
+}
+.menu-popup{
+  height: 90%;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  /* left: 0; */
+  background-color: #001529;
+  padding: 16px;
+  /* overflow-x: hidden; */
+  padding-top: 60px;
+  &::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: -25px;
+    height: 50px;
+    //background-color: #DE032B;
+    //background: rgb(1,17,32);
+    //background-image: linear-gradient(202deg, rgba(1,17,32,1) 50%, rgba(20,25,29,0) 50%),
+    //                  linear-gradient(159deg, rgba(1,17,32,1) 50%, rgba(20,25,29,0) 50%);
+    background-image: linear-gradient(202deg, #001529 50%, rgba(20, 25, 29, 0) 50%),
+                      linear-gradient(159deg, #001529 50%, rgba(20, 25, 29, 0) 50%);
+  }
 }

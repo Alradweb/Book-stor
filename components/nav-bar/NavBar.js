@@ -56,7 +56,7 @@ const NavBar = (props) => {
                 </button>
             </Spin>
             <Collapse isOpen={!collapsed} navbar className='menu-open'>
-                <Fade top>
+                <Fade top when={!collapsed}>
                     <div className='menu-popup'>
                         <Nav navbar className={'justify-content-end'}>
                             {
