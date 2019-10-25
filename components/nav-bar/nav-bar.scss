@@ -47,7 +47,7 @@
 
 }
 //$menu-background-color: #001529;
-$menu-background-color: #38460b;
+//$menu-background-color: #38460b;
 .menu-popup{
   width: 160px;
   height: 90%;
@@ -55,7 +55,7 @@ $menu-background-color: #38460b;
   z-index: 100;
   top: 0;
   /* left: 0; */
-  background-color: $menu-background-color;
+  background-color: $accent-color-secondary;
   padding: 16px;
   /* overflow-x: hidden; */
   padding-top: 60px;

@@ -7,16 +7,17 @@ import {useRouter} from 'next/router'
 import {Collapse, Navbar, Nav, NavItem} from 'reactstrap'
 import MenuIcon from "../icons/MenuIcon"
 import HomeIcon from "../icons/HomeIcon"
+import ListIcon from "../icons/ListIcon"
 
 const routes = [
     {
-        href: '/', name: 'Домой', id: 1
+        href: '/', name: 'Домой', id: 1, icon: <HomeIcon/>
     },
     {
-        href: '/cart', name: 'Регистрация', id: 2
+        href: '/cart', name: 'Регистрация', id: 2, icon: <HomeIcon/>
     },
     {
-        href: '/list', name: 'Список книг', id: 3
+        href: '/list', name: 'Список книг', id: 3, icon: <ListIcon/>
     }
 
 ]
@@ -68,10 +69,10 @@ const NavBar = (props) => {
                     <div className='menu-popup'>
                         <Nav navbar className={'justify-content-end'}>
                             {
-                                routes.map(({href, id, name}) => {
+                                routes.map(({href, id, name, icon}) => {
                                     return (
                                         <ActiveLink href={href} key={id} toggleNavbar={toggleNavbar}>
-                                                <HomeIcon/>
+                                                {icon}
                                                 {name}
                                         </ActiveLink>
                                     )
