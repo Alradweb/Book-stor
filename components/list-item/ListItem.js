@@ -2,11 +2,14 @@ import {Card, Button, CardTitle, CardText, Col, CardBody, CardImg} from 'reactst
 import './list-item.scss'
 import Link from "next/link"
 
-const BookLink = props => (
-    <Link href="/book/[title]" as={`/book/${props.title}`}>
-        <a>Подробнее</a>
-    </Link>
-)
+const BookLink = ({title}) =>{
+    console.log(title)
+  return(
+      <Link href="/book/[title]" as={`/book/${title}`}>
+          <a>Подробнее</a>
+      </Link>
+  )
+}
 
 const ListItem = ({item}) => {
     const substring = item.description.substring(0, 200)
@@ -20,7 +23,7 @@ const ListItem = ({item}) => {
                     <CardTitle>{item.title}</CardTitle>
                     <CardText>{substring}</CardText>
                         <div className='d-flex justify-content-between' >
-                            <BookLink title={item.title}/>
+                            <BookLink title={item.titleToLatin}/>
                            {/*<Button className='card-button-details' size="sm">Подробнее</Button>*/}
                             <Button className='card-button-buy' size="sm">Купить</Button>
                         </div>
