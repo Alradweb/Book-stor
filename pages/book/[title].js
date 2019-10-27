@@ -1,4 +1,8 @@
 import React from 'react'
+import {
+    Card, CardImg, CardText, CardBody,
+    CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 import {useRouter} from 'next/router'
 import PageLayout from '../../components/layout/PageLayout'
 import items from '../../data'
@@ -19,13 +23,24 @@ export default function BookDetails({item}) {
 
     return (
         <PageLayout title={ item.title }>
-            <h1 style={{color: 'white'}}>{item.title}</h1>
-            <p style={{color: 'white'}}>{item.description}</p>
+            <div>
+                <Card>
+                    <CardImg top width="100%" src={item.src} alt="Card image cap" />
+                    <CardBody>
+                        <CardTitle>{item.title}</CardTitle>
+                        <CardSubtitle>{item.publicationDate}</CardSubtitle>
+                        <CardText>{item.description}</CardText>
+                        <Button>Button</Button>
+                    </CardBody>
+                </Card>
+            </div>
+            {/*<h1 style={{color: 'white'}}>{item.title}</h1>*/}
+            {/*<p style={{color: 'white'}}>{item.description}</p>*/}
         </PageLayout>
     )
 }
 BookDetails.getInitialProps =  function(context) {
-    console.log('context--')
+   // console.log('context--')
     const { title} = context.query;
     const item =  items.find((item) => item.titleToLatin === title)
     if (!item && context.res) {
