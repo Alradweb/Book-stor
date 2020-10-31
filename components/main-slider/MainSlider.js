@@ -1,10 +1,10 @@
 import {Row, Col} from "reactstrap"
 import MySlider from "../slider/Slider"
 import Conveyor from "../conveyor/Сonveyor"
-import './main-slider.scss'
+import './main-slider.module.scss'
 
 
-const MainSlider = ({items, portion, setIndex, changeAnimStatus, pause, toggleHover, device = 'desktop'}) => {
+const MainSlider = ({currentItem, items, portion, setIndex, changeAnimStatus, pause, toggleHover, device = 'desktop'}) => {
     if (device === 'tablet') {
         return (
             <MySlider items={items}
@@ -25,7 +25,7 @@ const MainSlider = ({items, portion, setIndex, changeAnimStatus, pause, toggleHo
                 />
             </Col>
             <Col xs={8} className='conveyor-col'>
-                <Conveyor portion={portion} toggleHover={toggleHover}/>
+                <Conveyor portion={portion} toggleHover={toggleHover} currentItem={currentItem}/>
             </Col>
         </Row>
     )

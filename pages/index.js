@@ -1,13 +1,11 @@
-import './main.scss'
+import styles from './main-page.module.scss'
 import {Container, Row, Col} from 'reactstrap'
 import Layout from "../components/layout/Layout"
-import Link from "next/link"
 import GetNow from "../components/get-now/GetNow"
-import {MediaProvider} from '../context/context'
-import fetch from 'isomorphic-unfetch'
+import {MediaProvider} from '../context/media'
 import Description from "../components/description/Description"
 import items from '../data'
-
+import { providers } from 'next-auth/client'
 
 
 class Index extends React.Component {
@@ -25,9 +23,9 @@ class Index extends React.Component {
         }
     }
 
-    static async getInitialProps({req}) {
-        //const res = await fetch('https://api.tvmaze.com/search/shows?q=batman');
-        //const data = await res.json();
+    static async getInitialProps(context) {
+        const x = await providers(context)
+        const {req} = context
         let device
         if (typeof window === 'undefined') {
             const parser = eval("require('ua-parser-js')")  // prevent downloading on the client
@@ -35,12 +33,13 @@ class Index extends React.Component {
             device = parser(userAgent).device.type || 'desktop'
             console.log(`YES isServer, ${device}`)
         } else {
-            console.log('NOT isServer. getInitialProps сработал')
+
         }
 
         return {
             //shows: data.map(entry => entry.show),
-            device
+            device,
+            authProvider : x
         }
     }
 
@@ -129,11 +128,9 @@ class Index extends React.Component {
 
     render() {
 
-
-        //console.log(url)
         const {getCurrentProduct, setIndex, getPortion, changeAnimStatus, toggleHover} = this
         const {hydrationComplete, animStatus, pause, orientation, deviceWidth, deviceHeight} = this.state
-        const {title, description, publicationDate, price} = getCurrentProduct()
+        const {title, description, publicationDate, price, titleToLatin} = getCurrentProduct()
         const device = hydrationComplete ? this.state.device : this.props.device
         const desktopContent = device === 'desktop'
         const portraitSmallDevice = !desktopContent && orientation === 'portrait'
@@ -151,16 +148,17 @@ class Index extends React.Component {
                 orientation={orientation}
                 price={price}
                 animStatus={animStatus}
+                currentItem={titleToLatin}
             />
         )
         const getNowComponent = (
-            <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus}/>
+            <GetNow item={items[this.state.index]} dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus} title={title}/>
         )
         return (
             <MediaProvider value={{device, orientation, deviceWidth, deviceHeight}}>
-                <Layout title='Main page' device={device} >
-                    <Container fluid className='main-wrapper'>
-                        <Row className={portraitSmallDevice ? 'portrait-row' : 'main-row'}>
+                <Layout title='Main page' device={device} authProvider={this.props.authProvider}>
+                    <Container fluid className={styles.main_wrapper}>
+                        <Row className={portraitSmallDevice ? styles.portrait_row : styles.main_row}>
                             {
                                 desktopContent ? (
                                     <>

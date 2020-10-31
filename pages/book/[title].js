@@ -1,51 +1,42 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {
     Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+    CardTitle, Button
 } from 'reactstrap';
-import {useRouter} from 'next/router'
 import PageLayout from '../../components/layout/PageLayout'
 import items from '../../data'
 import Error from "../_error"
+import {CartContext} from '../../context/CartContext'
+import styles from './book.module.scss'
 
 export default function BookDetails({item}) {
-    // const router = useRouter()
-    // const queryTitle = router.query.title
-    // const {title} = router.query
-    // console.log('BookDetails',  title)
-    // const item = items.find((item) => item.titleToLatin === title)
-    // if(!item) return (
-    //     <PageLayout title={''}/>
-    // )
+    const {addBook} = useContext(CartContext)
     if (!item) {
-        return <Error statusCode={404} />;
+        return <Error statusCode={404}/>;
     }
-
     return (
-        <PageLayout title={ item.title }>
-            <div>
-                <Card>
-                    <CardImg top width="100%" src={item.src} alt="Card image cap" />
+        <PageLayout title={item.title}>
+            <div className={styles.book_wrapper}>
+                <Card className={styles.book_card}>
+                    <CardImg className={styles.book_image} src={item.src} alt={`Книга ${item.title}`}/>
                     <CardBody>
                         <CardTitle>{item.title}</CardTitle>
-                        <CardSubtitle>{item.publicationDate}</CardSubtitle>
+                        <CardText>{`Год публикации: ${item.publicationDate}`}</CardText>
+                        <CardText style={{color: 'red'}}>{`Цена: ${item.price} руб.`}</CardText>
                         <CardText>{item.description}</CardText>
-                        <Button>Button</Button>
+                        <Button onClick={() => addBook(item)} className='btn btn-danger'>В корзину</Button>
                     </CardBody>
                 </Card>
             </div>
-            {/*<h1 style={{color: 'white'}}>{item.title}</h1>*/}
-            {/*<p style={{color: 'white'}}>{item.description}</p>*/}
         </PageLayout>
     )
 }
-BookDetails.getInitialProps =  function(context) {
-   // console.log('context--')
-    const { title} = context.query;
-    const item =  items.find((item) => item.titleToLatin === title)
+
+BookDetails.getInitialProps = function (context) {
+    const {title} = context.query;
+    const item = items.find((item) => item.titleToLatin === title)
     if (!item && context.res) {
-        context.res.statusCode = 404;
+        context.res.statusCode = 404
     }
-    console.log(`Fetched title: ${item ? item.title : 'хуйня'}`);
-    return { item }
-};
+    return {item}
+}

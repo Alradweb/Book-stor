@@ -1,0 +1,30 @@
+@import "../styles/theme/theme";
+
+.main_wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.main_row {
+  width: 100%;
+  height: 70%;
+}
+
+.portrait_row {
+  width: 100%;
+  height: 100%;
+}
+
+.content_container {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  bottom: 0;
+  text-align: center;
+  color: $mainFontColor;
+}
+

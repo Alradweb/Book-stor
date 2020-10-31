@@ -1,16 +1,18 @@
 import Fade from 'react-reveal/Fade'
 import Zoom from 'react-reveal/Zoom'
+import Link from "next/link"
+import styles from './conveyor.module.scss'
 
-import './conveyor.scss'
-
-const Conveyor = ({portion, toggleHover}) => {
+const Conveyor = (props) => {
+    const {portion, toggleHover, currentItem} = props
     return (
         <div className='d-flex flex-column align-items-center' style={{height: '100%'}}>
             <div>
-                <button className='btn btn-danger'>Подробнее</button>
+                <Link href="/book/[title]" as={`/book/${currentItem}`} >
+                    <a className='btn btn-danger'>Подробнее</a>
+                </Link>
             </div>
-            <div className="conveyor">
-
+            <div className={styles.conveyor}>
                 <Fade right>
                     <ul>
                         {portion.map(item => {

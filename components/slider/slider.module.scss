@@ -1,4 +1,4 @@
-.phone-decoration{
+.phone_decoration{
   position: relative;
   height: 262px;
   width: 188px;
@@ -42,7 +42,7 @@
 
 }
 
-.image-container{
+.image_container{
   width: inherit;
   height: inherit;
   .image{
@@ -50,7 +50,7 @@
     height: auto;
   }
 }
-.image-container-full{
+.image_container_full{
   //width: 300px;
   height: inherit;
   margin-top: 64px;
@@ -62,7 +62,7 @@
 }
 
 @media (min-width: 1920px) {
-  .phone-decoration{
+  .phone_decoration{
     height: 465px;
     width: 320px;
   }

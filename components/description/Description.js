@@ -1,12 +1,12 @@
 import {Col, Row} from "reactstrap"
 import Logo from "../logo/Logo"
-import './description.scss'
-import {MediaConsumer} from '../../context/context'
+import styles from './description.module.scss'
+import {MediaConsumer} from '../../context/media'
 import MainSlider from "../main-slider/MainSlider"
 import GetNow from "../get-now/GetNow"
 import MySlider from "../slider/Slider"
 
-const Description = ({description, title, publicationDate, items, portion, setIndex, changeAnimStatus, pause, toggleHover,price, animStatus}) =>{
+const Description = ({currentItem, description, title, publicationDate, items, portion, setIndex, changeAnimStatus, pause, toggleHover,price, animStatus}) =>{
     return(
         <MediaConsumer>
             {
@@ -19,7 +19,7 @@ const Description = ({description, title, publicationDate, items, portion, setIn
                             <>
                                 <Col xs={6}
                                      className='d-flex justify-content-around '>
-                                    <GetNow dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus} orientation={orientation}/>
+                                    <GetNow dev={device} title={title} price={price} toggleHover={toggleHover} animStatus={animStatus} orientation={orientation}/>
                                 </Col>
                                 <Col xs={6} className='d-flex justify-content-around align-items-center'>
                                     <MySlider items={items}
@@ -45,24 +45,24 @@ const Description = ({description, title, publicationDate, items, portion, setIn
                         </Col>
                     )
                   return (
-                      <div className='product-description'>
-                          <Row className='row-top'>
+                      <div className={styles.product_description}>
+                          <Row className={styles.product_row_top}>
                               <Col xs='4' className='flex-column'>
                                   <Logo height={32} width={43}/>
                               </Col>
-                              <Col xs='8' className='description'>
-                                  <div className='description-container'>
-                                      <div className='description-main'>
-                                          <h5 className='description-title'>{title}</h5>
+                              <Col xs='8' className={styles.description}>
+                                  <div className={styles.description_container}>
+                                      <div className={styles.description_main}>
+                                          <h5 className={styles.description_title}>{title}</h5>
                                       </div>
-                                      <div className='description-sub'>
+                                      <div className={styles.description_sub}>
                                           <time>{publicationDate}{' '}|</time>
-                                          <span className='description-genre'>{' '}Фантастика</span>
+                                          <span className={styles.description_genre}>{' '}Фантастика</span>
                                       </div>
                                   </div>
                               </Col>
                           </Row>
-                          <Row className='row-bottom'>
+                          <Row className={styles.product_row_bottom}>
                               <Col xs={12}>
                                   <MainSlider
                                       items={items}
@@ -71,6 +71,7 @@ const Description = ({description, title, publicationDate, items, portion, setIn
                                       changeAnimStatus={changeAnimStatus}
                                       pause={pause}
                                       toggleHover={toggleHover}
+                                      currentItem={currentItem}
                                   />
                               </Col>
                           </Row>

@@ -1,27 +1,26 @@
-import Head from "next/head"
-import 'bootstrap/dist/css/bootstrap.min.css'
+import React from 'react'
 import config from 'react-reveal/globals'
-
-import './index.scss'
-import './page-layout.scss'
+import styles from './page-layout.module.scss'
 import Header from "../header/Header"
 import {Container} from "reactstrap"
-config({ ssrFadeout: true })
+import MyHead from "./MyHead";
+
+config({ssrFadeout: true})
 
 const PageLayout = props => {
 
     return (
-        <div className="page-layout">
-            <Head>
-                <title>{props.title}</title>
-            </Head>
-            <Header device={props.device} />
-            <main>
-                <Container fluid>
-                {props.children}
-                </Container>
-            </main>
-        </div>
+        <>
+            <MyHead title={props.title}/>
+            <div className={styles.page}>
+                <Header device={props.device}/>
+                <main>
+                    <Container fluid>
+                        {props.children}
+                    </Container>
+                </main>
+            </div>
+        </>
     )
 }
 

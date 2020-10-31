@@ -1,12 +1,12 @@
-import {CardDeck, CardGroup, Col, Row} from 'reactstrap'
+import {Row} from 'reactstrap'
 import PageLayout from "../components/layout/PageLayout"
 import items from '../data'
 import ListItem from "../components/list-item/ListItem"
 
-const List = props =>{
+const List = () =>{
     return(
         <PageLayout title='List'>
-            <Row>
+            <Row style={{paddingTop: '30px'}}>
 
                 {
                     items.map((item) =>{

@@ -3,7 +3,7 @@ import {
     CarouselItem
 } from 'reactstrap'
 import Fade from 'react-reveal/Fade'
-import './slider.scss'
+import styles from './slider.module.scss'
 
 
 class MySlider extends React.Component {
@@ -80,11 +80,11 @@ class MySlider extends React.Component {
                     onExited={this.onExited}
                     key={item.id}
                 >
-                    <div className={this.props.fullSize ? 'image-container-full' : 'image-container'} ref={this.sliderRef} >
+                    <div className={this.props.fullSize ? styles.image_container_full : styles.image_container} ref={this.sliderRef} >
                         <Fade right>
                             <img src={item.src}
                                  alt={item.title}
-                                 className='image'
+                                 className={styles.image}
                                  width={deviceWidth}
                                  height={deviceHeight} />
                         </Fade>
@@ -109,8 +109,8 @@ class MySlider extends React.Component {
         }
         return (
             <>
-                <div className='phone-decoration'>
-                    <div className='phone' >
+                <div className={styles.phone_decoration}>
+                    <div className={styles.phone} >
                         <Carousel
                             ride={'carousel'}
                             keyboard={false}
