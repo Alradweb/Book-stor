@@ -1,31 +1,26 @@
 import {Row, Col} from "reactstrap"
 import MySlider from "../slider/Slider"
 import Conveyor from "../conveyor/Сonveyor"
-import './main-slider.module.scss'
+import styles from './main-slider.module.scss'
 
 
-const MainSlider = ({currentItem, items, portion, setIndex, changeAnimStatus, pause, toggleHover, device = 'desktop'}) => {
-    if (device === 'tablet') {
-        return (
-            <MySlider items={items}
-                      device={device}
-                      setIndex={setIndex}
-                      changeAnimStatus={changeAnimStatus}
-                      pause={pause}
-            />
-        )
-    }
+const MainSlider = ({currentTitle, items, portion, setIndex, changeAnimStatus, pause, toggleHover, device = 'desktop'}) => {
+    const mySlider = (
+        <MySlider items={items}
+                  device={device}
+                  setIndex={setIndex}
+                  changeAnimStatus={changeAnimStatus}
+                  pause={pause}
+        />
+    )
+    if (device === 'tablet') return mySlider
     return (
-        <Row className='main-slider'>
+        <Row className={styles.main_slider}>
             <Col xs={4}>
-                <MySlider items={items}
-                          setIndex={setIndex}
-                          changeAnimStatus={changeAnimStatus}
-                          pause={pause}
-                />
+                {mySlider}
             </Col>
-            <Col xs={8} className='conveyor-col'>
-                <Conveyor portion={portion} toggleHover={toggleHover} currentItem={currentItem}/>
+            <Col xs={8} className={styles.conveyor_col}>
+                <Conveyor portion={portion} toggleHover={toggleHover} currentTitle={currentTitle}/>
             </Col>
         </Row>
     )

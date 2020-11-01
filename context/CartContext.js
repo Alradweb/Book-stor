@@ -48,7 +48,7 @@ const CartContextProvider = ({children}) => {
         handleCheckout,
         ...state
     }
-console.log('contextValues-----', contextValues)
+
     return (
         <CartContext.Provider value={contextValues}>
             {children}

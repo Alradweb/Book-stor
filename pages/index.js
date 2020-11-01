@@ -4,8 +4,8 @@ import Layout from "../components/layout/Layout"
 import GetNow from "../components/get-now/GetNow"
 import {MediaProvider} from '../context/media'
 import Description from "../components/description/Description"
-import items from '../data'
 import { providers } from 'next-auth/client'
+import items from '../data'
 
 
 class Index extends React.Component {
@@ -24,22 +24,17 @@ class Index extends React.Component {
     }
 
     static async getInitialProps(context) {
-        const x = await providers(context)
+        const authProvider = await providers(context)
         const {req} = context
         let device
         if (typeof window === 'undefined') {
             const parser = eval("require('ua-parser-js')")  // prevent downloading on the client
             const userAgent = req ? req.headers['user-agent'] : null
             device = parser(userAgent).device.type || 'desktop'
-            console.log(`YES isServer, ${device}`)
-        } else {
-
         }
-
         return {
-            //shows: data.map(entry => entry.show),
             device,
-            authProvider : x
+            authProvider
         }
     }
 
@@ -103,6 +98,7 @@ class Index extends React.Component {
         })
     }
     getCurrentProduct = () => items[this.state.index]
+
     getPortion = () => {
         //console.log('this.props.device-',this.props.device)
         const quantity = 4
@@ -130,15 +126,11 @@ class Index extends React.Component {
 
         const {getCurrentProduct, setIndex, getPortion, changeAnimStatus, toggleHover} = this
         const {hydrationComplete, animStatus, pause, orientation, deviceWidth, deviceHeight} = this.state
-        const {title, description, publicationDate, price, titleToLatin} = getCurrentProduct()
         const device = hydrationComplete ? this.state.device : this.props.device
         const desktopContent = device === 'desktop'
         const portraitSmallDevice = !desktopContent && orientation === 'portrait'
         const descriptionComponent = (
             <Description
-                description={description}
-                title={title}
-                publicationDate={publicationDate}
                 items={items}
                 setIndex={setIndex}
                 portion={getPortion()}
@@ -146,13 +138,12 @@ class Index extends React.Component {
                 pause={pause}
                 toggleHover={toggleHover}
                 orientation={orientation}
-                price={price}
                 animStatus={animStatus}
-                currentItem={titleToLatin}
+                item={getCurrentProduct()}
             />
         )
         const getNowComponent = (
-            <GetNow item={items[this.state.index]} dev={device} price={price} toggleHover={toggleHover} animStatus={animStatus} title={title}/>
+            <GetNow item={getCurrentProduct()} dev={device} toggleHover={toggleHover} animStatus={animStatus}/>
         )
         return (
             <MediaProvider value={{device, orientation, deviceWidth, deviceHeight}}>

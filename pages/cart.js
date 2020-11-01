@@ -41,7 +41,7 @@ const Cart = () => {
                                                     </div>
                                                 </div>
                                                 <div className='mr-3'>{`${book.quantity} шт.`}</div>
-                                                <div className={'d-flex justify-content-between align-items-center'}>
+                                                <div className={'d-flex justify-content-between align-items-center flex-wrap'}>
                                                     <Button onClick={() => increase(book)} color="success"
                                                             className='mr-2'
                                                             style={{padding: '15px'}}><PlusIcon/></Button>
@@ -74,10 +74,10 @@ const Cart = () => {
                                         <Ruble style={{width: '30px', height: '30px'}}/>
                                     </CardText>
                                     <hr className="my-4"/>
-                                    <div className='text-center'>
-                                        <Button onClick={handleCheckout} color="success" className='mr-1 mb-2'>Оформить
+                                    <div className=' d-flex flex-wrap justify-content-around'>
+                                        <Button onClick={handleCheckout} color="success" className='mb-2'>Оформить
                                             заказ</Button>
-                                        <Button onClick={clearCart} color="danger" className='ml-1 mb-2'>Очистить
+                                        <Button onClick={clearCart} color="danger" className='mb-2'>Очистить
                                             корзину</Button>
                                     </div>
                                 </CardBody>
