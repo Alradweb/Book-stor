@@ -10,7 +10,6 @@ import CartImg from '../icons/CartImg'
 import CartIcon from "../icons/CartIcon"
 import {CartContext} from '../../context/CartContext'
 import Link from "next/link"
-import Sign from "../sign/Sign"
 import styles from './nav-bar.module.scss'
 
 const routes = [
@@ -58,7 +57,7 @@ const NavBar = (props) => {
     const toggleNavbar = (toggle) => {
         setCollapsed(toggle)
     }
-    console.log(props.device)
+
     return (
         <Navbar color="transparent" dark>
             {props.children}
@@ -89,7 +88,6 @@ const NavBar = (props) => {
                                     )
                                 })
                             }
-                            {props.device === "mobile" ? <Sign/> : null}
                         </Nav>
                     </div>
                 </Fade>

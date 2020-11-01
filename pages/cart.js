@@ -27,36 +27,38 @@ const Cart = () => {
                                 {
                                     cartItems.map((book) => {
                                         return (
-                                            <ListGroupItem
-                                                className={'d-flex justify-content-between align-items-center bg-light mb-3'}
-                                                key={book.id}>
-                                                <div style={{
-                                                    marginRight: 'auto',
-                                                    display: 'flex',
-                                                    alignItems: 'center'
-                                                }}>
-                                                    <img src={book.src} alt={book.title} width='50px'/>
-                                                    <div className={'d-flex flex-column ml-3'}>
-                                                        <b>{book.title}</b><span>{`Цена: ${book.price} руб.`}</span>
-                                                    </div>
-                                                </div>
-                                                <div className='mr-3'>{`${book.quantity} шт.`}</div>
-                                                <div className={'d-flex justify-content-between align-items-center flex-wrap'}>
-                                                    <Button onClick={() => increase(book)} color="success"
-                                                            className='mr-2'
-                                                            style={{padding: '15px'}}><PlusIcon/></Button>
-                                                    {
-                                                        book.quantity === 1 ?
-                                                            <Button onClick={() => removeBook(book)} color="danger"
-                                                                    style={{padding: '15px'}}>
-                                                                <TrashIcon/>
-                                                            </Button> :
-                                                            <Button onClick={() => decrease(book)} color="danger"
-                                                                    style={{padding: '15px'}}>
-                                                                <MinusIcon/>
-                                                            </Button>
-                                                    }
-                                                </div>
+                                            <ListGroupItem key={book.id}>
+                                                <Row
+                                                    className={'d-flex justify-content-start justify-content-sm-between align-items-center flex-wrap'}>
+                                                    <Col xs={12} sm={5} className='d-flex flex-column'>
+                                                        <img src={book.src} alt={book.title} width='50px'/>
+                                                        <b>{book.title}</b>
+                                                    </Col>
+                                                    <Col xs={5} sm={3}>{`Цена: ${book.price} руб.`}</Col>
+                                                    <Col xs={2} sm={1}>{`${book.quantity} шт.`}</Col>
+                                                    <Col xs={5} sm={3}
+                                                         className={'d-flex justify-content-end justify-content-sm-around align-items-center flex-wrap'}>
+                                                        <Button onClick={() => increase(book)} color="success"
+                                                                style={{padding: '10px'}}
+                                                                className='mb-1 mr-1 mr-sm-0 mb-sm-0'
+                                                        ><PlusIcon/></Button>
+                                                        {
+                                                            book.quantity === 1 ?
+                                                                <Button onClick={() => removeBook(book)} color="danger"
+                                                                        style={{padding: '10px'}}
+                                                                        className='mr-1 mr-sm-0 mb-1 mb-sm-0'
+                                                                >
+                                                                    <TrashIcon/>
+                                                                </Button> :
+                                                                <Button onClick={() => decrease(book)} color="danger"
+                                                                        style={{padding: '10px'}}
+                                                                        className='mr-1 mr-sm-0 mb-1 mb-sm-0'
+                                                                >
+                                                                    <MinusIcon/>
+                                                                </Button>
+                                                        }
+                                                    </Col>
+                                                </Row>
                                             </ListGroupItem>
                                         )
                                     })
@@ -67,10 +69,12 @@ const Cart = () => {
                             <Card className='bg-light'>
                                 <CardBody>
                                     <CardTitle>Всего книг</CardTitle>
-                                    <CardText className='font-weight-lighter' style={{fontSize: '42px'}}>{itemCount}</CardText>
+                                    <CardText className='font-weight-lighter'
+                                              style={{fontSize: '42px'}}>{itemCount}</CardText>
                                     <CardTitle>Сумма</CardTitle>
                                     <CardText>
-                                        <span className='font-weight-lighter mr-2' style={{fontSize: '42px'}}>{total}</span>
+                                        <span className='font-weight-lighter mr-2'
+                                              style={{fontSize: '42px'}}>{total}</span>
                                         <Ruble style={{width: '30px', height: '30px'}}/>
                                     </CardText>
                                     <hr className="my-4"/>
@@ -91,3 +95,4 @@ const Cart = () => {
 }
 
 export default Cart
+
