@@ -29,8 +29,7 @@ function ActiveLink({children, href, toggleNavbar}) {
     const router = useRouter()
     const matched = router.pathname === href
     const baseClass = styles.menu_link_base
-    const classes = []
-    classes.push(baseClass)
+    const classes = [baseClass]
     if (matched) {
         const activeClass = styles.menu_link_active
         classes.push(activeClass)
@@ -58,7 +57,7 @@ const NavBar = (props) => {
     const toggleNavbar = (toggle) => {
         setCollapsed(toggle)
     }
-    console.log('STYLES---', styles)
+
     return (
         <Navbar color="transparent" dark>
             {props.children}
