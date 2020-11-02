@@ -7,9 +7,9 @@ const options = {
     // https://next-auth.js.org/configuration/providers
     providers: [
         Providers.Auth0({
-            clientId: process.env.AUTH0_ID,//'YD1qw3kY3ztFvG2zx37hkFTl6bgqb07J',
-            clientSecret: process.env.AUTH0_SECRET,//'SgrGo3j3IOftdknRhH7aYr5qI26pIQvCGBg4mPlNTrbYMCUVM4VvjCz125-yd5BR',
-            domain: process.env.AUTH0_DOMAIN //'dev-d1orjuaj.eu.auth0.com'
+            clientId: process.env.AUTH0_ID,
+            clientSecret: process.env.AUTH0_SECRET,
+            domain: process.env.AUTH0_DOMAIN
         }),
 
     ],
@@ -46,7 +46,7 @@ const options = {
     // https://next-auth.js.org/configuration/options#jwt
     jwt: {
         // A secret to use for key generation (you should set this explicitly)
-        // secret: 'INp8IvdIyeMcoGAgFGoA61DdBglwwSqnXJZkgz8PSnw',
+
 
         // Set to true to use encryption (default: false)
         // encryption: true,
