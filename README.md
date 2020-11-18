@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://cruel-eggnog.surge.sh">
-    <img alt="logo" src="https://nextjs-book-store.herokuapp.com/static/logo-dark.svg" width="100" />
+    <img alt="logo" src="https://res.cloudinary.com/deecur6on/image/upload/v1605681843/book-stor_ser75j.svg" width="100" />
   </a>
 </p>
 <h1 align="center">
