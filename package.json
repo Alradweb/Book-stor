@@ -21,7 +21,7 @@
     "react-reveal": "^1.2.2",
     "reactstrap": "^8.0.1",
     "sass": "^1.28.0",
-    "ua-parser-js": "^0.7.20"
+    "ua-parser-js": "^0.7.33"
   },
   "devDependencies": {},
   "browserslist": [
